@@ -1,0 +1,178 @@
+中国政府网对网民开展加强政府信息公开工作调查
+《中华人民共和国政府信息公开条例》（以下简称《条例》）将于2008年5月1日起正式施行，这对保护公众知情权，更好地推进我国政务公开具有重大意义。为了更好地贯彻落实《条例》，我们特别推出这次调查，真诚地听取广大网民朋友对加强政府信息公开工作的看法和建议，欢迎您积极参与本期网上调查，感谢您的支持！
+<!--
+var username =''; var usermail='';
+var country =''; var province='';
+var sex ='2'; var degree='';
+var occupation =''; var animals='';
+var star =''; var blood='';
+var belief =''; var idcard='';
+var phone =''; var address='';
+function Trim(str){if(str.charAt(0)==' ')
+{
+str=str.slice(1);str=Trim(str);}return str;
+}
+function viewChart()
+{
+window.open('http://202.123.110.196/govvote/vote/admin/survey/multipiechart.jsp?surveyid=1214','_blank','width=600,height=800,toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,status=yes');
+}
+function resetSurvey1214(){
+document.frmSurvey1214.reset();}
+function viewSurveyResult1214()
+{
+window.open('http://202.123.110.196/govvote/vote/temp/surveyresult/vote1214_result.htm','_blank','width=600,height=800,toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,status=yes');
+}
+function checkSubmit1214()
+{
+if(document.frmSurvey1214.enp_username){
+username = document.frmSurvey1214.enp_username.value;
+if(username == '' ||Trim(username)==''|| username.lenght > 20)
+{
+alert('用户名不能为空或过长！');
+return false;
+}}
+if(document.frmSurvey1214.enp_usermail){
+usermail = document.frmSurvey1214.enp_usermail.value;
+if(usermail == '' ||Trim(usermail)==''|| usermail.lenght > 50)
+{
+alert('邮件地址不能为空或过长！');
+return false;
+}
+}}
+function submitSurvey1214(){
+var checkedbox ;
+var radiobox ;
+var checkedboxvalue ='' ;
+var radioboxvalue = '';
+var askvalue = '';
+var askquestions ;
+var selection ;
+var selectvalue = '' ;
+var radioExtraValue = '' ;
+var checkExtraValue = '' ;
+if(document.frmSurvey1214.enp_username){     username = document.frmSurvey1214.enp_username.value;} if(document.frmSurvey1214.enp_usermail){     usermail = document.frmSurvey1214.enp_usermail.value;} if(document.frmSurvey1214.enp_country){     country = document.frmSurvey1214.enp_country.value;} if(document.frmSurvey1214.enp_province){     province = document.frmSurvey1214.enp_province.value;} if(document.frmSurvey1214.enp_sex){     sex = document.frmSurvey1214.enp_sex.value;} if(document.frmSurvey1214.enp_degree){     degree = document.frmSurvey1214.enp_degree.value;} if(document.frmSurvey1214.enp_occupation){     occupation = document.frmSurvey1214.enp_occupation.value;} if(document.frmSurvey1214.enp_animals){     animals = document.frmSurvey1214.enp_animals.value;} if(document.frmSurvey1214.enp_star){     star = document.frmSurvey1214.enp_star.value;} if(document.frmSurvey1214.enp_blood){     blood = document.frmSurvey1214.enp_blood.value;} if(document.frmSurvey1214.enp_belief){     belief = document.frmSurvey1214.enp_belief.value;} if(document.frmSurvey1214.enp_idcard){     idcard = document.frmSurvey1214.enp_idcard.value;} if(document.frmSurvey1214.enp_phone){     phone = document.frmSurvey1214.enp_phone.value;} if(document.frmSurvey1214.enp_address){     address = document.frmSurvey1214.enp_address.value;}if(checkSubmit1214()==false) return;
+askstring = document.frmSurvey1214.askString.value;
+askstring = askstring.substring(0,askstring.lastIndexOf(','));
+askquestions = askstring.split(',');
+if(Trim(askstring)!=''){
+for(i=0;i<askquestions.length;i++){  textname = askquestions[i];
+answerarea = document.getElementById(textname);
+if(typeof(answerarea.length)!='undefined'){
+for(j=0;j<answerarea.length;j++){
+askvalue =askvalue+'#**#'+answerarea[j].value  ;
+}
+askvalue = askvalue.substring(4);
+}else{
+askvalue = askvalue+'#**#'+answerarea.value;
+}}
+askvalue = askvalue.substring(4);
+}
+radiostring = document.frmSurvey1214.radioString.value;
+radiostring = radiostring.substring(0,radiostring.lastIndexOf(','));
+radiobox = radiostring.split(',');
+if(Trim(radiostring)!=''){
+for(i=0;i<radiobox.length;i++){  radioname = radiobox[i];
+radio = document.getElementById(radioname);
+if(radio.checked){
+extraid = 'remark'+radio.value;
+extravalue = 'null'
+if(document.all(extraid)){
+if(Trim(document.all(extraid).value)!=''){extravalue=document.all(extraid).value;}
+radioExtraValue =radioExtraValue+'##**'+extravalue;
+}else{
+radioExtraValue =radioExtraValue+'##**'+'null';}
+radioboxvalue =radioboxvalue+','+radio.value  ;
+}}
+radioboxvalue = radioboxvalue.substring(1);
+radioExtraValue = radioExtraValue.substring(4); }
+selectstring = document.frmSurvey1214.selectString.value;
+selectstring = selectstring.substring(0,selectstring.lastIndexOf(','));
+selection = selectstring.split(',');
+if(Trim(selectstring)!=''){
+for(i=0;i<selection.length;i++){  selectname = selection[i];
+select = document.getElementById(selectname);
+if(Trim(select.value)!=''){
+selectvalue =selectvalue+','+select.value  ;
+}}
+selectvalue = selectvalue.substring(1); }
+checkBoxString = document.frmSurvey1214.checkBoxString.value;
+checkBoxString = checkBoxString.substring(0,checkBoxString.lastIndexOf(','));
+checkedbox = checkBoxString.split(',');
+if(Trim(checkBoxString)!=''){
+for(i=0;i<checkedbox.length;i++){
+checkname = checkedbox[i];
+if(document.all(checkedbox[i]).checked){
+extraid = 'remark'+document.all(checkedbox[i]).value;
+extravalue = 'null'
+if(document.all(extraid)){
+if(Trim(document.all(extraid).value)!=''){extravalue = document.all(extraid).value;}
+checkExtraValue =checkExtraValue+'##**'+extravalue;
+}else{
+checkExtraValue =checkExtraValue+'##**'+'null'; }
+checkedboxvalue = checkedboxvalue+','+document.all(checkedbox[i]).value  ;
+}else{continue;}}
+checkedboxvalue = checkedboxvalue.substring(1);
+checkExtraValue = checkExtraValue.substring(4);}
+document.frmSurvey1214.askValue.value=escape(askvalue);
+document.frmSurvey1214.radioValue.value=radioboxvalue;
+document.frmSurvey1214.checkBoxValue.value=checkedboxvalue;
+document.frmSurvey1214.selectValue.value=selectvalue;
+document.frmSurvey1214.radioRemarkValue.value=escape(radioExtraValue);
+document.frmSurvey1214.checkRemarkValue.value=escape(checkExtraValue);
+document.frmSurvey1214.openfeatures1214.value='width=600,height=800,toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,status=yes';
+if(document.frmSurvey1214.radioString.value!=''){
+if(document.frmSurvey1214.radioValue.value==''){alert('请填写完整答案!');return;}}
+if(document.frmSurvey1214.checkBoxString.value!=''){
+if(document.frmSurvey1214.checkBoxValue.value==''){alert('请填写完整答案!');return;}}
+if(document.frmSurvey1214.selectString.value!=''){
+if(document.frmSurvey1214.selectValue.value==''){alert('请填写完整答案!');return;}}
+if(document.frmSurvey1214.askString.value!=''){
+if(document.frmSurvey1214.askValue.value==''){alert('请填写完整答案!');return;}}
+frmSurvey1214.action = 'http://202.123.110.196/govvote/vote/admin/survey/securitySubmit.jsp?surveyID=1214';
+frmSurvey1214.target ='security_server';
+window.open('','security_server','width=400,height=150,toolbar=no,menubar=no,location=no,scrollbars=no,resizable=no,status=no');
+frmSurvey1214.submit();
+}
+-->
+1、您认为推行政府信息公开有什么重要意义？【可多选】
+推进科学执政、民主执政、依法执政的重要体现
+推进社会主义民主，完善社会主义法制，建设社会主义法治国家的重要体现
+有利于建立健全预防和惩治腐败体系
+有利于形成行为规范、运转协调、公正透明、廉洁高效的行政管理体制
+其他
+2、您认为下列哪些信息是行政机关应该主动予以公开的？【可多选】
+涉及公民、法人或者其他组织切身利益的
+需要社会公众广泛知晓或者参与的
+反映本行政机关机构设置、职能、办事程序等情况的
+其他依照法律、法规和国家有关规定应当主动公开的
+其他
+3、您觉得如何才能保障公民及时、准确地获取政府信息？【可多选】
+行政机关及时、准确地公开政府信息，发现影响或可能影响社会稳定、扰乱社会管理秩序的虚假或不完整信息的，应在其职责范围内发布准确的政府信息予以澄清
+行政机关建立健全政府信息发布协调机制
+行政机关通过政府公报、政府网站、报刊等便于公众知晓的方式公开政府信息
+各级政府在国家档案馆、公共图书馆设置政府信息查阅场所
+行政机关设立公共查阅室、资料索取点、信息公告栏、电子信息屏等场所、设施，公开政府信息
+行政机关编制、公布并及时更新政府信息公开目录和政府信息公开指南
+其他
+4、《条例》除规定政府信息公开主体主要是行政机关和法律法规授权的具有管理公共事务职能的组织外，还明确说明教育、医疗卫生、计划生育、供水、供电、供气、供热、环保、公共交通等公共企事业单位在提供社会公共服务过程中制作、获取的信息的公开也参照此《条例》执行，针对这一点，您怎么看？【可多选】
+公开这些与人民群众生产、生活密切相关的社会公共信息非常有必要
+进一步保证公民知情权的体现
+有利于更好地保障群众利用信息的合法权益
+具体执行的效果有待观察
+其他
+5、您认为政府信息公开对促进廉政建设将会产生怎样的影响？【可多选】
+有利于规范行政权力的正确行使，实现依法行政
+有利于从制度上遏制和预防腐败，避免行政行为暗箱操作
+有效保证人民群众的知情权、参与权和监督权
+有利于转变政府职能，加强机关作风建设，提高工作效率
+其他
+6、您最希望通过中国政府网获得哪方面的政府信息？【可多选】
+政府机构设置
+人事任免信息
+政策法规解读
+政府部门重要工作进展
+法规文件
+执法监管信息
+政府部门新闻发布
+政府办事指南
+其他

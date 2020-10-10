@@ -1,0 +1,26 @@
+2009年电子政务行业方案商生存状态调查
+<!--
+if (!document.phpAds_used) document.phpAds_used = ',';
+phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
+document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
+document.write ("http://vic.cbinews.com/openads_new/adjs.php?n=" + phpAds_random);
+document.write ("&what=zone:79");
+document.write ("&exclude=" + document.phpAds_used);
+if (document.referrer)
+document.write ("&referer=" + escape(document.referrer));
+document.write ("'><" + "/script>");
+//-->
+作者：卜娜
+图片1:调查图表
+在任何一个国家，政府信息化都是带动企业信息化，再带动社会信息化的原动力，所以电子政务市场的需求变化，也左右着IT产业发展的方向。在金融危机的影响下，2009年的电子政务市场的价值，对行业方案商而言也有了更多的意义。从年初的规划来看，电子政务建设出现了很多新的内容：“服务”、“信息安全”、 “自主创新”、“业务系统整合”，它们的出现意味着电子政务建设已经为方案商提出了新的要求。面对市场的变化，涉足电子政务市场的方案商，又在发生哪些改变呢？
+<!--
+if (!document.phpAds_used) document.phpAds_used = ',';
+phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
+document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
+document.write ("http://vic.cbinews.com/openads_new/adjs.php?n=" + phpAds_random);
+document.write ("&what=zone:80");
+document.write ("&exclude=" + document.phpAds_used);
+if (document.referrer)
+document.write ("&referer=" + escape(document.referrer));
+document.write ("'><" + "/script>");
+//-->
