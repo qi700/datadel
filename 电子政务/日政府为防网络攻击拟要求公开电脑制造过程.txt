@@ -1,0 +1,206 @@
+日政府为防网络攻击拟要求公开电脑制造过程
+科技讯 8月12日上午消息，据日本共同社报道，日本政府有关人员11日透露，为防范网络攻击、迎接2020年东京奥运会和残奥会，已基本决定加强举措防止中央各府省厅使用的电脑和智能手机等终端的信息外泄。
+由于这些产品在制造过程中存在被植入恶意程序的危险，日本政府非常重视这一“供应链风险”，将要求构筑信息系统的企业公开产品制造过程的详细信息，并确认相关企业董事的国籍。
+企业方面在签订合同之前是否会详细披露视为企业机密的产品制造过程等信息尚不明朗，日本政府这一举措能在何种程度上保证实效性将面临挑战。
+.foot {
+border-top:2px #0068b7 solid;background:#e5e5e5;
+clear: left;
+float: left;
+height: 100px;
+color:#626262;
+line-height: 24px;
+text-align: center;
+width: 100%;
+}
+.foot .copyright { text-align: center; }
+.foot .tab { padding-bottom: 10px; padding-top: 10px;
+}
+.foot .tab a{color:#626262;}
+.mainwidht { clear: left; float: left; margin-bottom: 6px; margin-left: 0px; margin-right: 0px; margin-top: 0px; width: 100%; }
+.links {
+border-bottom-color: #A4CDED;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-left-color: #A4CDED;
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: #A4CDED;
+border-right-style: solid;
+border-right-width: 1px;
+border-top-width: 0px;
+clear: left;
+margin: 0px;
+padding: 0px;
+width: 100%;
+float: left;
+text-align:left;
+}
+.links a { float: left; height: 24px; line-height: 24px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; padding-top: 0px; white-space: nowrap; width: auto; }
+.links ul { padding: 8px; text-align: center; width: 100%; }
+.links li{text-align: center; float: left;}
+.links li a{text-decoration:none;}
+国务院部门网站
+外交部
+国防部
+发展改革委
+教育部
+科技部
+工业和信息化部
+国家民委
+公安部
+监察部
+民政部
+司法部
+财政部
+人力资源社会保障部
+国土资源部
+环境保护部
+住房城乡建设部
+交通运输部
+水利部
+农业部
+商务部
+文化部
+卫生计生委
+人民银行
+审计署
+国家语委
+航天局
+原子能机构
+国资委
+海关总署
+税务总局
+工商总局
+质检总局
+新闻出版广电总局
+体育总局
+安全监管总局
+食品药品监管总局
+统计局
+林业局
+知识产权局
+旅游局
+宗教局
+参事室
+国管局
+版权局
+侨办
+港澳办
+法制办
+国研室
+台办
+新闻办
+新华社
+中科院
+社科院
+工程院
+发展研究中心
+行政学院
+地震局
+气象局
+银监会
+证监会
+保监会
+社保基金会
+自然科学基金会
+信访局
+粮食局
+能源局
+国防科工局
+烟草局
+外专局
+公务员局
+海洋局
+测绘地信局
+铁路局
+民航局
+邮政局
+文物局
+中医药局
+外汇局
+煤矿安监局
+档案局
+密码局
+扶贫办
+三峡办
+南水北调办
+地方网站
+北京
+天津
+河北
+山西
+内蒙古
+辽宁
+吉林
+黑龙江
+上海
+江苏
+浙江
+安徽
+福建
+江西
+山东
+河南
+湖北
+湖南
+广东
+广西
+海南
+重庆
+四川
+贵州
+云南
+西藏
+陕西
+甘肃
+青海
+宁夏
+新疆
+新疆生产建设兵团
+友情链接
+物联网文库
+通信人家园
+赛迪网
+易观网
+GPS
+中云网
+3G手机
+物联中国
+智能电网
+赛迪物联网
+RFID世界网
+物联网世界
+中国采购招标网
+中国工控网
+美通社
+中国会展门户
+向日葵远程控制
+中国BIM门户
+安防知识网
+Win10之家
+MRO工业品采购
+装修
+装修论坛
+中国IC网
+78商务网
+马可波罗科技资讯
+华强芯城
+免费信息发布网
+OFweek电子工程网
+hao123
+51电子网
+安防
+北极星太阳能光伏网
+电子市场网
+移动通信网
+云计算
+元器件交易网
+中国安防网
+机房360
+中国电池网
+深圳之窗
+中国产业调研网
+CNET科技资讯网
+ZDNet至顶网
+关于我们  |  广告服务  |  联系我们  |  网站声明  |  意见反馈  |  快递查询
+Copyright 2007-2014 e-gov.org.cn All Rights Reserved京ICP备 09086746号

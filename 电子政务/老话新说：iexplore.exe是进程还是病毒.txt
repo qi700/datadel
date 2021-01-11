@@ -1,0 +1,12 @@
+老话新说：iexplore.exe是进程还是病毒
+iexplore.exe是Microsoft Internet Explorer的主程序。这个微软Windows应用程序让你在网上冲浪，和访问本地Interanet网络。这不是纯粹的系统程序，但是如果终止它，可能会导致不可知的问题。iexplore.exe同时也是Avant网络浏览器的一部分，这是一个免费的基于Internet Explorer的浏览器。注意iexplore.exe也有可能是Trojan.KillAV.B病毒，该病毒会终止你的反病毒软件，和一些Windows系统工具，该进程的安全等级是建议删除。
+这个东西可以说是病毒，也可以说不是病毒。
+因为微软的浏览器就是IEXPLORE.EXE，但是它一般情况随系统被安装在C:\Program Files\Internet Explorer下面。那么，如果发现这个文件是在这个目录下面的，一般情况不是病毒，当然，不包括已经被感染了的情况；还有一种情况，就是IEXPLORE.EXE在C:\WINDOWS\system32\下面，那么这个十有八九都是病毒。
+系统进程－－伪装的病毒 iexplore.exe
+Trojan.PowerSpider.ac 破坏方法：密码解霸V8.10。又称“密码结巴”。偷用户各种密码，包含：游戏密码、局域网密码、腾讯QQ账号和密码、POP3 密码、Win9x缓存密码及拨号账号等等。这个木马所偷密码的范围很广，对广大互联网用户的潜在威胁也巨大。
+现象：
+1、系统进程中有iexplore.exe运行，注意，是小写字母；
+2、搜索该程序iexplore.exe，不是位于C盘下的PROGRAMME文件夹，而是WINDOWS32文件夹。
+解决办法：
+1、到C:\\WINDOWS\\system32下找到ixplore.exe 和 psinthk.dll 完全删除之。
+2、到注册表中，找到HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion \\Run “mssysint”= iexplore.exe，删除其键值。

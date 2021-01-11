@@ -1,0 +1,24 @@
+IE主页被锁定的综合解决方案
+《开始》《运行》输入regedit进入注册表编辑器
+到HKEY_USERS＼.DEFAULT＼Software＼Policies＼Microsoft
+Internet Explorer＼Control Panel下的DWORD值“homepage”的键值改为“0”（即为可选状态）。
+1.运行"regedit",打开注册表编辑器
+2.打开[HKEY_LOCAL_MACHINE＼SOFTWARE＼Microsoft＼InternetExplorer＼Main]
+主键
+3.点击"Main"主键,在右边窗口中找到一个名为"Start Page"的字符串值,并将其键值数据改为想要的
+4接着打开[HKEY_CURRENT_USER＼Software＼Microsoft＼InternerExplorer＼MAIN]主键
+5.点击"Main"主键,在右边窗口找到"Start Page",将其键值数据改为想要的网页就行了
+6.重启电脑使设置生效
+三种方法：
+在XP下：
+对于一打开IE就上某些网站的情况，只要把"IE/Internet选项/主页"中的默认主页改回你想要的地址就行了，或者
+在开始-运行
+输入 regedit
+命令，打开找到HKEY_LOCAL_MACHINE＼Software＼Microsoft＼Internet Explorer＼Main"Windows Title"，修改"start page"后的数据项也可以改变IE浏览器的默认主页。
+对于一开机就登录某些网站情况，一般是注册表的启动选项被加了一项，运行regedit命令，打开HKEY_LOCAL_MACHINE＼software＼Microsoft＼windows＼current version＼run,这时在右边窗口看到的就是windows启动时加载的选项了，从数据中找到那个网址，按右键删除该键值，重新开机，一切就正常了
+开始---运行--输入 gpedit.msc
+打开组策略，
+在左边的树状结构中找到
+用户配置---管理模板--Windows组件---点击
+Internet Explorer
+字串5

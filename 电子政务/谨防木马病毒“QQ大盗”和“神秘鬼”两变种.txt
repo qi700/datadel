@@ -1,0 +1,19 @@
+谨防木马病毒“QQ大盗”和“神秘鬼”两变种
+江民今日提醒您注意：在今天的病毒中Trojan/PSW.QQPass.coo“QQ大盗”变种coo和TrojanDownloader.Cryptic.hi“神秘鬼”变种hi值得关注。 　　病毒名称：Trojan/PSW.QQPass.coo
+中 文 名：“QQ大盗”变种coo
+病毒长度：34972 字 节
+病毒类型：木马
+危害等级：★★
+影响平台：Win 9X/ME/NT/2000/XP/2003
+Trojan/PSW.QQPass.coo“QQ大盗”变种coo是“QQ大盗”木马家族最新变种之一，由Delphi语言编写、经过加壳处理。“QQ大盗”变种coo运行后，在%ProgramFiles%\Internet Explorer\目录下释放多个病毒文件。在后台秘密监视系统弹出的窗口标题，一旦发现用户打开QQ登陆窗口时，自动记录用户键盘操作，盗取QQ用户名和密码，并发送到黑客指定的邮箱里。
+病毒名称：TrojanDownloader.Cryptic.hi
+中 文 名：“神秘鬼”变种hi
+病毒长度：30932 字节
+病毒类型：木马
+危害等级：★★
+影响平台：Win 9X/ME/NT/2000/XP/2003
+TrojanDownloader.Cryptic.hi“神秘鬼”变种hi是“神秘鬼”木马家族最新变种之一，由VC工具编写、并经过加壳处理。“神秘鬼”变种hi运行后，在%WinDir%%System32%\目录下释放病毒文件iexplore.exe， 并且在后台自动连接网络，从指定站点下载并执行其它木马程序，监听用户键盘操作，盗取用户敏感信息，给用户带来极大的损失。
+针对以上病毒，江民反病毒中心建议广大电脑用户：
+1、请立即升级杀毒软件，防止目前盛行的病毒、木马、有害程序或代码等攻击用户计算机。
+2、江民KV网络版的用户请及时升级控制中心，并建议相关管理人员在适当时候进行全网查杀病毒，保证企业信息安全。
+3、怀疑已中毒的用户可使用江民免费在线查毒进行病毒查证。免费在线查毒地址：http://online.jiangmin.com/chadu.asp

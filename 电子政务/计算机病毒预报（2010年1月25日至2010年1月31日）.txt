@@ -1,0 +1,25 @@
+计算机病毒预报（2010年1月25日至2010年1月31日）
+病毒名称：“极光变种”（Exploit.CVE-2010-0249）
+危害程度：中
+受影响的系统: Windows 95, Windows 98, Windows Me, Windows NT, Windows 2000, Windows XP, Windows Server 2003
+未受影响的系统: Windows 3.x, Macintosh, Unix, Linux
+病毒特征描述及危害：
+这是一个利用“CVE-2010-0249”（Internet Explorer 0day漏洞，微软定义其安全级别为“严重”）远程代码执行漏洞来传播其它恶意程序的网页脚本病毒，一般内嵌在正常或者特别构建的网页中。如果用户的计算机系统没有及时安装微软安全公告MS10-002相应的补丁，当用户使用受影响版本的IE浏览器访问带有“极光”变种的网页时，便会在后台连接骇客指定的远程服务器站点，下载恶意程序并自动调用运行。其中，所下载的恶意程序可能是网游木马、流氓广告或后门等，会给被感染系统用户造成不同程度的威胁。受该漏洞影响的IE版本如下：Internet Explorer 5.01 Service Pack 4、Microsoft Internet Explorer 6.0、Microsoft Internet Explorer 6.0 SP1、Microsoft Internet Explorer 7.0、Microsoft Internet Explorer 8。
+预防和清除：
+建议电脑用户安装安全软件并及时升级，做好“漏洞扫描与修复”，打好补丁，弥补系统漏洞；不浏览不良网站，不随意下载安装可疑插件；不接收QQ、MSN、Email等传来的可疑文件；上网时打开杀毒软件实时监控功能。
+病毒名称：“DNS骗子变种”（Trojan.DNSSmokva.am）
+危害程度：中
+受影响的系统: Windows 95, Windows 98, Windows Me, Windows NT, Windows 2000, Windows XP, Windows Server 2003
+未受影响的系统: Windows 3.x, Macintosh, Unix, Linux
+病毒特征描述及危害：
+这是一个木马病毒，病毒运行后会通过修改注册表“HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters”下相关键值的方式，实现篡改系统DNS设置的目的。其会将“本地连接”的DNS服务器地址设置为“85.255.*.85”（首选）和“85.255.112.236”（备用），当被感染系统用户在提交域名时，可能会被该DNS服务器进行恶意解析，从而被引导至恶意站点上，致使用户面临极大的风险和威胁。
+预防和清除：
+建立用户一定要养成良好的网络使用习惯，及时升级杀毒软件，开启防火墙以及实时监控等功能，切断病毒传播的途径，不给病毒以可乘之机。
+病毒名称：“毒蝙蝠变种”（Worm.BAT.ae）”
+危害程度：中
+受影响的系统: Windows 95, Windows 98, Windows Me, Windows NT, Windows 2000, Windows XP, Windows Server 2003
+未受影响的系统: Windows 3.x, Macintosh, Unix, Linux
+病毒特征描述及危害：
+这是一个蠕虫病毒，病毒运行后会在临时文件夹下释放一个隐藏的批处理文件。通过执行该文件，“毒蝙蝠”变种ae将被复制到“%windir%\”文件夹下，重新命名为“samto.exe”。复制自身到“E:\”至“J:\”盘根目录下，重新命名为“WindowsSystem.exe”。还会生成文本文件“c:\samto.txt”并打开。病毒会在被感染系统注册表启动项中添加键值“WindowsSystem”，以此实现开机自动运行。
+预防和清除：
+建议电脑用户采取以下措施预防该病毒：安装安全软件并及时升级，做好“漏洞扫描与修复”，打好补丁，弥补系统漏洞；不浏览不良网站，不随意下载安装可疑插件；不接收QQ、MSN、Email等传来的可疑文件；上网时打开杀毒软件实时监控功能。

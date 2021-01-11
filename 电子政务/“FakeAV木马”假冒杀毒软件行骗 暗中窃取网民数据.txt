@@ -1,0 +1,35 @@
+“FakeAV木马”假冒杀毒软件行骗 暗中窃取网民数据
+近日，360安全中心拦截到一批假冒杀毒软件及系统补丁的木马程序（FakeAV）。此类木马通过恶意网页伪造Windows弹窗，恐吓访问者电脑存在风险，借机将木马安插到网民电脑中。据分析，FakeAV木马具有篡改浏览器首页，收集和上传受害者信息，以及强制安装多款播放器等危害，网民可使用360安全卫士将其拦截查杀。
+安全机构研究报告表明，假冒杀毒软件的木马自从2006年开始流行，是国外十分猖獗的一种网络诈骗手段。Google数据显示，该类威胁已占据全部恶意软件的15%。就在不久前的6月份，美国警方联合欧洲7国执法部门破获一起假冒杀毒软件诈骗案，涉案金额超过7200万美元，而微软也曾专门为删除某款假冒杀毒软件发布补丁。
+根据360安全专家介绍，FakeAV木马之所以能够骗到不少网民，主要依靠网页动画制造出“电脑中毒”的假象。此前，一个名为“广告炸弹”的木马甚至设计出“电脑即将高温爆炸”的圈套，欺骗网民付费购买某款软件的注册码。如果网友将这类网页关闭，所有“中毒”现象都会不治自愈。
+专家提示，如果有网民电脑感染了FakeAV木马，应及时下载使用360安全卫士进行全盘扫描，以免个人重要数据被木马窃取。
+附：FakeAV木马分析
+一：不法分子首先通过论坛链接、电子邮件等方式将用户引导至hxxp://you-o.com/windows-safe/b.html，并弹出伪造“电脑中毒”现象的提示：
+点击确定后出现一个弹窗和下载链接，欺骗用户下载：
+该网页还会提示访问者修改主页：
+之后下载一个假冒Windows补丁的恶意程序（FakeAV木马）：
+二、文件名为“Windowsxp-补丁kb20110807H.COM”的FakeAV木马运行后，搜集用户机器信息传送到服务器端，并暗中下载推广多款软件。
+l         获取机器MAC，和机器描述信息
+l         向网站
+hxxp://vip.yaqio.com:9999/Submit.php?id=1&action=inst&mac=00-0C-29-20-3A-7E&lockcode=-11413"提交用户的信息
+从hxxp://d.15587.com/ie.bmp将恶意软件暗中下载到临时目录
+下载结束，执行木马文件
+下载和执行，内含3个软件静默安装的推广包，也就是用户电脑中会莫名其妙的多出三个软件。
+"C:\Program Files\Kuping_s_8560.exe"
+hxxp://d.15587.com/Kuping_s_8560.exe
+hxxp://d.15587.com/FunshionInstall.exe
+hxxp://d.15587.com/PPTV(pplive)_forqiqi_0003exe.exe
+带有数字签名的静默安装包
+b7a97a6171210740279d499cb8fd5f1f  PPTV(pplive)_forqiqi_0003exe.exe
+bc908a9b1423916ad1407ba4a948ffe8  FunshionInstall_C107941.exe
+b668f13c4885db413666ef2a1a5dd912  Kuping_s_8560.exe
+三、Intel.exe执行分析
+创建命名管道执行CMD命令，设置文件属性。
+创建隐藏IE 打开http://15587.com/?run
+生成加密Media Update.vbe
+Media Update.vbe会用Intel.exe替换Outlook Express\msimn.exe
+修改主页hxxp://www.82021.com/?
+修改右键菜单：
+"HKEY_CLASSES_ROOT\CLSID\{871C5380-42A0-1069-A2EA-08002B30309D}\shell\OpenHomePage\Command\", "C:\Program Files\Internet Explorer\iexplore.exe http://www.82021.com//","REG_SZ"
+c430ec439ca3b48f1e33839a2852babf  Intel.exe
+c430ec439ca3b48f1e33839a2852babf  Masker.exe

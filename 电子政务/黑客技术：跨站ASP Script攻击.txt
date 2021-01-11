@@ -1,0 +1,159 @@
+黑客技术：跨站ASP Script攻击
+每当我们想到黑客的时候，黑客往往是这样一幅画像：一个孤独的人，悄悄进入别人的服务器中，进行破坏或者窃取别人的秘密资料。也许他会更改我们的主页，甚者会窃取客户的信用卡号和密码。另外，黑客还会攻击访问我们网站的客户。与此同时，我们的服务器也成了他的帮凶。微软称这种攻击为“跨站script”攻击。而这种攻击大多数都发生在网站动态产生网页的时侯，但黑客的目标并不是你的网站，而是浏览网站的客户。
+跨站script攻击的说明
+在一本名为＜＜ADVISORY CA--2000-02＞＞的杂志中，CERT警告大家：如果服务器对客户的输入不进行有效验证，黑客就会输入一些恶意的HTML代码，当这些HTML代码输入是用于SCRIPT程序，他们就能利用它来进行破坏，如插入一些令人厌恶的图片或声音等，同时，也能干扰了客户正确浏览网页。
+我们知道，有些朋友曾经被诱导到一些可疑的免费网站，他们得到的仅仅是10到20个小的窗口，这些窗口常常伴随着由JAVA 或 JAVASCRIPT生成的失效安钮，这被称为鼠标陷阱。关闭这些窗口是徒劳的，每当我们关闭一个窗口，又会有10几个窗口弹出。这种情况常常发生在管理员没在的时侯发生。鼠标事件是黑客利用跨站SCRIPT方法攻客户的典型范例。
+恶意的标签和SCRIPT不单纯的恶作剧，他们甚至可以窃取资料和捣毁系统。一个聪明的甚至是不够聪明的黑客都能够使用SCRIPT干扰或者改变服务器数据的输入。利用SCRIPT代码也能攻击客户系统，让你的硬盘尽损。而且你要知道，在你一边使用服务器的时候，黑客的SCRIPT也正在你服务器里安全的地方运行着的呀！如果客户对你的服务器非常信认，同样他们也会信任那些恶意的SCRIPT代码。甚至这个代码是以〈SCRIPT〉或者〈OBJECT〉的形式来自黑客的服务器。
+即使使用了防火墙（SSL）也不能防止跨站SCRIPT的攻击。那是因为如果生成恶意SCRIPT代码的设备也使用了SSL，我们服务器的SSL是不能辨别出这些代码来的。我们难道就这样把客户曾经那么信任的网站拱手让给黑客吗？而且有这种破坏的存在，会让你网站名誉尽损的。
+一、跨站SCRIPT攻击示例：
+根据CERT的资料，动态输入大致有这几种形式：URL参数，表格元素，COOKISE以及数据请求。让我们来分析一下，这个只有两个页面的网站，网站名为：MYNICESITE.COM。第一页使用一张表格或COOKIE来获取用户名：
+＜%@ Language=VBScript %＞
+＜% If Request.Cookies("userName") ＜＞ "" Then
+Dim strRedirectUrl
+strRedirectUrl = "page2.asp?userName="
+strRedirectUrl = strRedirectUrl & Response.Cookies("userName")
+Response.Redirect(strRedirectUrl)
+Else %＞
+＜HTML＞
+＜HEAD＞
+＜TITLE＞MyNiceSite.com Home Page＜/TITLE＞
+＜/HEAD＞
+＜BODY＞
+＜H2＞MyNiceSite.com＜/H2＞
+＜FORM method="post" action="page2.asp"＞
+Enter your MyNiceSite.com username:
+＜INPUT type="text" name="userName"＞
+＜INPUT type="submit" name="submit" value="submit"＞
+＜/FORM＞
+＜/BODY＞
+＜/HTML＞
+＜% End If %＞
+第二页返回用户名以示欢迎：
+＜%@ Language=VBScript %＞
+＜% Dim strUserName
+If Request.QueryString("userName")＜＞ "" Then
+strUserName = Request.QueryString("userName")
+Else
+Response.Cookies("userName") = Request.Form("userName")
+strUserName = Request.Form("userName")
+End If %＞
+＜HTML＞
+＜HEAD＞＜/HEAD＞
+＜BODY＞
+＜H3 align="center"＞Hell ＜%= strUserName %＞ ＜/H3＞
+＜/BODY＞
+＜/HTML＞
+当你正常常输入文字时，一切都很正常。如果你输入Script代码：＜SCRIPT＞alert(’Hello.’;＜/script＞,JavaScript警告标签就会弹出来：
+在你下一次访问时，这个警示标签同样会出现；这是因为这个Script代码在你第一次访问的时后就已经留在cookie中了。这是一个简单的跨站攻击的范例。
+如果你认为这是一个特殊情况，你也不妨到网上别的地方看看，亲自试一下。我曾经对一些大型的政府网站、教育网站以及商业网站进行过测试，他们当中的确有部分出现了以上所说的情况，我甚至发现了我经常使用信用卡的网站也居然对输入不进行任何过滤，想想真是可怕。
+二、 用E-Mail进行跨站Script攻击
+跨站script攻击用在列表服务器，usenet服务器和邮件服务器来得特别容易。下面还是以MyNiceSite.com网站为例进行说明。由于你经常浏览这个网站，它的内容也的确让你爱不爱不释手，因此在不知不觉中你就把浏览器的改成了总是信任这个动态网站内容的设置。
+MyNiceSite.com网站总是通过出售征订它们Email信件的邮箱地址来获得收入，这的确是一种不太好的办法。于是我买了它的一份邮箱地址。并发了大量的邮件给你们。在信中我告诉你们尽快访问这个网 站，并检查你们帐户使用的最新情况。为了让你们感到方便，我在这信中也作了链接。我在这链接URL中的username参数中舔加了script代码。有些客户在不知不觉中就点击了这个链接，也就是说上了我的当，同时我也从中得到了好处：
+它是这样工作的，当你点击这个链接的时后，在链接里的script代码就会引导你所用浏览器去下载我的JavaScript程序并执行它。我的Script检查到你使用的是IE浏览器后，就着手下载ActiceX控件 particularlyNasty.dll。因为之前你已经把这个网站的内容认为总是安全的，这样，我的script代码和Active 控件就能在你机器上自由自在的运行了。
+三、 Activex攻击说明
+在讨论ActiveX时，CERT和微软都没提到跨站script方法所带来的的危险。W3C在＜＜安全常见问题解答＞＞中对ActiveX的安全问题作了比较详尽的说明。Java applet对系统的控制受到严格限制。SUN开发它时就规定，只有那些对系统的安全不构成威胁的操作才被允许运行。
+在另一方面，ActiveX对系统的操作就没有严格地被限制。如果一但被下载，就可以象安装的可执行程序一样做他们想干的事情。针对这一特点IE浏览器也作了某些限制，如对于那些不安全的站点，在它的默认设置中就会不允许你进行下载或者会给你警告的提示。正在基于ActiveX进行开发的公司，如VeriSign公司，它们对ActiveX控件都给编了号。当你在下载控件的时后，IE浏览器会给你警告并显示它的可信籁程度。由用户决定是否相信这个控件。这样一来系统的安全性就增加了。
+但是，对于那些没有多少经验的用户来说，他们往往不自觉地对原来的设置进行了修改，让这些控件在没有任何提示的情况下就下载了。另外，对一个新手来说，即使在有提示的情况下也会不加思索地下载那些没作任何标记的控件。在我们所举的例子中，由于你对该站点的信任，改了浏览器的设置，这样，ActiveX控件在不经过任何提示的情况下就下载，并在你的机器上不知不觉地开始运行。
+四、16进制编码的ActiveX Script 攻击
+要把用心不良的标签和script区分出来是一件非常困难的事。Script还可以16进制的形式把自己藏起来。让我们看看下面这个E-mail范例好吗？它是以16进制的形式被发送出去的：
+这几乎是一封完整的邮件，里面包含了以16进制伪造的URL参数：sender=mynicesite.com。当用户点击链接时，用户的浏览器就会直接开始第一例所说的处理过程而弹出警告窗口。
+第二部分：跨站Script攻击的防犯
+一、如何避免服务器受到跨站Script的攻击
+值得庆幸的是，防止跨站Script攻击的技术正趋于完善。目前可采取这几种方式来防止跨站Script的攻击：
+1.对动态生成的页面的字符进行编码
+你们首先要采用的就是对动态生成页面的字符进行编码，你必须这样做，不然黑客很有可能更改你的字符设置而轻易地通过你的防线。如果我们的网站是个英语网站，这样只要我们把字符编码设成拉丁字符ISO-8859-1就行了，具体情况如下：
+＜META http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"＞
+2.过滤和限制所有输入的数据
+这是防止跨站Script的攻击的第二种方法，在进行登录的时侯，不要让那些特殊的字符也输入进去。因此我们可在ONSUBMIT方法中加入JAVASCRIPT程序来完成这个功能。在本例中我们限制最多只能输入15个字符。这样可以阻止那些较长的script的输入。
+在＜＜Knowledge Base Article QA252985＞＞这本书中微软提供了一个简短的Javascript程序来完成对输入数据的过滤。我们也根据具体情况引进了这段代码用于我们的例子中，如：
+function checkForm() {document.forms[0].userName.value = _ RemoveBad(document.forms[0].userName.value);
+return true;
+}
+// MICROSOFT’S CODE
+function RemoveBad(strTemp) {strTemp = strTemp.replace(/\＜/\＞/\"/\’/\%/\;/\(/\)/\&/\+/\-/g,"");
+return strTemp;
+}
+用这个办法，可以过滤在输入中含有的这些字符：
+% ＜ ＞ [ ] { } ; & + - " ’( )
+3.使用HTML和URL编码
+尽管使用上面所说的过滤和限制输入的办法是一种非常重要用防御手段，但它对我的这种采用邮件方式的攻击还是无能为力。因为我把URL的参数直接放在邮件中。针对这种情况我们不得不采取一种更有力的安全措施。如果我们用的ASP，解决起来相对说来要容易得多。只要对动态生成的网页总进行HTML和URL编码就行了。针对我们例子中的情况，在第一输入页中我们对redirect URL作了如下改动：
+strRedirectUrl = strRedirectUrl & _
+server.URLEncode(Response.Cookies("userName"))
+在执行页中我们加入：
+strUserName =server.HTMLEncode(Request.QueryString("userName"))
+和
+strUserName =server.HTMLEncode(Request.Form("userName"))
+微软推荐对所有动态页面的输入和输出都应进行编码。甚至在对数据库数据的存入和取出也应如此。这样你就能在很大程度上避免跨站script的攻击。
+要做到这些还要在Page1.asp中加入：
+＜%@ Language=VBScript %＞
+＜% If Request.Cookies("userName") ＜＞ "" Then
+’redirect if detect the cookie
+Dim strRedirectUrl
+strRedirectUrl = "page2.asp?userName="
+strRedirectUrl = strRedirectUrl & _
+server.URLEncode(Request.Cookies("userName"))
+Response.Redirect(strRedirectUrl)
+Else %＞
+＜HTML＞
+＜HEAD＞
+＜META http-equiv="Content-Type"content="text/html; charset=ISO-8859-1"＞
+＜TITLE＞MyNiceSite.com Home Page＜/TITLE＞
+＜/HEAD＞
+＜script LANGUAGE="javascript"＞
+＜!--
+function checkForm() {
+document.forms[0].userName.value = RemoveBad(document.forms[0].userName.value);
+return true;
+}
+//******************************************************
+//Programmer: NOT ORIGINAL CODE - COMES FROM MICROSOFT
+//Code Source: Microsoft Knowledge Base Article Q25z985
+//Description: Removes bad characters.
+//******************************************************
+function RemoveBad(strTemp) {
+strTemp =strTemp.replace(/\＜/\＞/\"/\’/\%/\;/\(/\)/\&/\+/\-/g, "");
+return strTemp;
+}
+//--＞
+＜/SCRIPT＞
+＜BODY＞
+＜BR＞
+＜H2＞MyNiceSite.com＜/H2＞
+＜BR＞
+＜FORM method="post"action="page2.asp" onsubmit="return checkForm();"＞
+Enter your MyNiceSite.com username:
+＜INPUT type="text"name="userName" width="10" maxwidth="10"＞
+＜INPUT type="submit"name="submit" value="submit"＞
+＜/FORM＞
+＜/BODY＞
+＜/HTML＞
+＜% end if %＞
+Page2.asp中加如：
+＜%@ Language=VBScript %＞
+＜% Dim strUserName
+If Request.QueryString("userName")＜＞"" Then
+strUserName =server.HTMLEncode(Request.QueryString("userName"))
+Else
+Response.Cookies("userName") =Request.Form("userName")
+strUserName = server.HTMLEncode(Request.Form("userName"))
+End If %＞
+＜HTML＞
+＜HEAD＞
+＜META http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"＞
+＜/HEAD＞
+＜BODY＞
+＜H3 align="center"＞Hell ＜%= strUserName %＞＜/H3＞
+＜/BODY＞
+＜/HTML＞
+现在由于这种攻击遭到有效的防制。那于那些恶意的标签和Script被编码，他们就被以文字的形式显现了出来
+我们也可增加一个IIS组件用于过滤所有从动态输入中的特殊字符。对于那些已经做好的网站，采用这种办法来防止跨站script的攻击来得非常容易。我们的这个控件能拦截来自ASP页面的REQUEST目标，可对表格，cookie,请求字串和程序的内容进行检测：
+我们也可以通过编写log文件的方法把统计数据加入这个组件中。每当一个客户输入一个非法字符时，这个组件会记下它的IP地址和时间。详情请见Doug Dean的＜＜Roll your Own IIS Application on ASPToday＞＞一文。
+我们只需采取一些简单的步聚就能有效地阻止跨站script的攻击。除了以上所说的三种方法外，微软和CERT还强烈推荐使用一种他们称之为“sanity check”的方法。例如，假设有个输入窗口只允许输入数字，我们就给它做个限定，只允许0-9数字的输入。微软和CERT所采用的这种对输入的字符进行限定的办法要比单独的采用过滤特殊字符要好得多。采用了这些措施后你就能让那些参观你网站的客户在访问你网站时受到保护。
+二、免受黑客攻击我们浏览器方法：
+当你在网上漫游的时侯，怎样来避免受到攻击呢？微软和CERT建议不要在网上胡碰乱撞。针对这种情况，PC杂志一个栏目的名叫John Dvorack作者作了一个饶有兴趣的回答。他认为这是微软公司一起有预谋的行为：就是用来恐吓网上冲浪的人到那些安全的站点去浏览，如美国在线和MSN.com网站。
+在我们所举的例子中，即使你不在网上胡乱游荡，也不能避免在网上遭到黑客的袭击。具有讽刺意义的是，大多数的危险都来自于我们最信任的网站。如果要让网站一定不出问题，你只好不下载任何动态内容或者任何cookie。预知详情请参阅浏览器的相关资料。
+微软也警告你们应把浏览器的Active Script设置成严格限制的状态并把Email也设成严格限制的接收模式。在点击邮件中的链接时，一定要小心。如需进一步了解情况请参阅一本名叫＜＜Microsoft’s Knowledge Base Article Q253117＞＞的书。为了以防万一，你最好是多一点上网经验，并且时刻要小心谨慎。
+结论
+如果你是以前的UNIX程序开发人员，你也许不会知道跨站script意谓着什么。你知道许多站点的管理人员登录的用户名和密码分别为root,root.同样许多数据库管理员的名称和密码分别为sa,password。你也知道Webzine(如Phrack 和 Alt2600)，依据他们所提供的方法能让你一步步地知道某台服务器的弱点。在这种硬件上，你也知道许多网站的数据库服务器和web服务器都没有进行自我保护。一但遭遇黑客，机器就得瘫痪。
+尽管我们很容易采取防止系统受到黑客的攻击的措施，但我们的系统是一直暴露在黑客面前的。我们完全有理由相信下一年还会出现一些新的安全漏洞。在CERT公司John Howard先生指导下完成的一篇论文中曾提到：“跟据目前的研究显示，每个在英特网上具有域名的网站平均一年被黑客至少攻击一次。”
+对服务器来说那怕只是一次这种攻击也是不能承受的。跨站Script攻击是黑客可采用的另一种方法。但我们只要进行以上所说的一些简单的处理就能防止这种形式攻击的发生。

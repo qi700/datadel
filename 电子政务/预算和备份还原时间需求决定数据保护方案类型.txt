@@ -1,0 +1,320 @@
+预算和备份还原时间需求决定数据保护方案类型
+在预算限制下，为兼顾缩短备份还原时间及跨异构平台的需求，混合搭配传统备份软件与磁盘快照等不同类型产品，是目前常见的作法     依服务器执行任务的类
+型与重要性的差异，分别导入不同的备份方案已经是现在企业常见的作法。传统的磁带备份在成本上无疑是最低的，但就备份窗口与还原时间来说也是最慢的，对某些承担关键应用的服务器来说，由于不可能容忍长达十多个小时甚至数天的还原时间，只能选择以磁盘为基础的备份方案。      以磁盘为基础的数据保护方案包括单纯以磁盘当作存储池或缓冲区的D2D2T与VTL，结合磁盘快照与复制的频繁快照产品，以及连续数据保护（CDP）等几类，以还原时间点的精细度或还原速度而言，CDP无疑是最佳的产品，但为捕获并存放前端服务器的每个I/O写入动作，用户需在存储设备上花费大笔成本。由于费用相当高，CDP其实已脱离备份的范畴，而须从建置备援的角度来看待，因此折衷的作法是采用混合部署，只为少数极关键的服务器部署CDP，其余则采成本较低的方案。      至于D2D2T与磁盘快照两者的性能与成本介于传统磁带备份与CDP之间，目前绝大多数的备份软件都以支持以硬盘作为存储媒体，只要设定一个存放备份的存储池或数据夹，再将备份路径导向此处即可，基本上无需另外购买授权（当然如果想使用某些D2D高级功能还需另购选购程序）。
+但D2D2T限制在于中介硬盘只能发挥缓冲的作用，单就备份时间来说，除去机械动作后，磁盘的连续写入速率并不见得会比新型的磁带机快，主要优势在于依赖读取动作的还原时间，以及可让转存磁带作业不影响系统运作。由于这种方式只是把磁盘当成磁带来用（备份软件基本上也是以写入磁带的格式来写入磁盘），因此也是采用磁带式的运作逻辑，一般也只能达到一天一次的备份频率。
+若用户希望每天能获得多次备份复制，并将恢复时间缩短到以分钟计算，但又负担不起CDP，就只能依靠磁盘快照产品。不过磁盘快照产品目前的问题在于对平台与应用程序的支持度还不够，用户若有Unix或Linux平台，或是某些特定的数据库需要备份，还是只能选择传统备份软件。而且一些性能较佳、支持度较广的快照产品价格也较为昂贵，折衷作法还是透过混合搭配，为特定关键应用服务器部署快照产品，其它服务器透过传统备份来提供保护。
+从我们的了解来说，混合搭配已是企业常见的作法。例如对英华达来说，以磁盘快照为基础的Symantec BESR与FalconStorCDP已是他们平日执行备份与还原作业的主要工具，但是基于长期存档与法规遵从的需要，并没有放弃传统备份软件与磁带设备。
+接下来，我们将逐一介绍与比较台湾市场上流通较广的传统备份软件、频繁快照以及CDP产品。
+传统备份软件：功能趋于同质化
+传统备份软件可分为用于大型网络与异构平台环境的跨平台等级产品，以及以Windows平台为基础的产品两个层级。前者如Symantec的NetBackup、EMC的Legato NetWorker、Bakbone NetVault等，后者则有Symantec的Backup Exec与CA的Brightstor ARCServe Backup。
+但无论是那个层级的应用，传统备份软件经过十多年的发展后，目前在功能上已经趋于同质化，同级产品间的功能与支持性差别很小，已没有哪个产品能单靠功能异军突起，因此采购决策的依据，便从功能面转到价格、品牌与操作易用性方面。
+以跨平台、大型环境应用等级产品来说，台湾市场目前较常见的是Symantec的NetBackup、EMC的Legato NetWorker、Bakbone NetVault，以及IBM的Tivoli Storage Manager（TSM）与HP Data Protector等5款产品。      其中HP的Data Protector基本上是与HP的存储产品随机出货，而IBM TSM也主要用在IBM系统环境（甚至是随IBM主机附送），这两款产品很少会单独销售，因此市场上流通的产品还是以NetBackup、NetWorker与NetVault为主。
+这3款产品在支持性与功能方面大致不相上下，较显著的差异是NetVault没有TapeRAID与无主机（Serverless）备份功能，但NetVault的接口是3款产品中最亲和易用的，报表功能最强大，采用VTL方式的D2D运作方式也别具一格。
+至于新版NetBackup的接口改善程度虽大，但仍有许多功能必须透过命令列或Script执行，且过去最让人诟病的报表功能改善也有限。
+NetWorker的接口则较难操作，不像前述两款产品可透过单一整合接口完成多数的操作，用户必须在多个功能群组间交替操作。
+就品牌知名度来说，挟Veritas过去的基础，目前市场占有率领先的Symantec无疑是公认的第一品牌，不过一般说来价格也最昂贵，相对的NetVault的市场占有率相对较低，但价格也较便宜。有10多年经验的耐特普罗信息事业核心处副总经理曾维??表示，以台湾市场生态而言，除了价格因素外，厂牌知名度往往对用户的采购意愿有决定性的影响，NetBackup的领先地位因此越趋稳固。
+在Windows环境备份方面，首先要强调的是所谓Windows环境应用指的是备份软件主程序必须安装在Windows平台，但还是可以通过代理程序备份非Windows平台。目前市场上最重要的产品是Symantec Backup Exec与CA的ARCServe Backup，另外EMC近来也以Dantz Retrospect企图抢进这个市场。      在平台与应用程序的支持性方面，Backup Exec与ARCServe的差距不大，只是Backup Exec少了对HP Tru64的客户端支持，而ARCServe缺乏DB2的代理程序而已，而Retrospect与前两者就有较大的差距。但ARCServe的操作接口被公认是所有企业级备份软件中最易于使用的，而Retrospect在接口易用性方面的表现也不差，相较下Backup Exec的用户就需要接受较多的训练才能熟习。
+传统型备份软件功能比较
+类型
+跨平台大型环境应用
+Windows环境应用
+厂牌
+Symantec
+EMC
+Bakbone
+CA
+Symantec
+EMC
+产品名称
+NetBackup
+Legato NetWorker
+NetVault
+ARCServe Backup
+Backup Exec
+Dantz Retrospect
+进阶备份功能支持
+资料加密
+●
+●
+●
+●
+●
+●
+合成备份
+●
+●
+●
+×
+●
+●
+Tape RAID
+●
+●
+×
+●
+●
+●
+无主机备份
+●
+●
+×
+●
+●
+×
+应用程序支持
+Oracle
+●
+●
+●
+●
+●
+×
+MS SQL
+●
+●
+●
+●
+●
+●
+Informix
+●
+●
+●
+●
+●
+×
+Sybase
+●
+●
+●
+●
+●
+×
+IBM DB2
+●
+●
+●
+×
+●
+×
+SAP R/3
+●
+●
+●
+●
+●
+×
+Exchange
+●
+●
+●
+●
+●
+●
+Lotus Notes
+●
+●
+●
+●
+●
+×
+SharePoint
+●
+●
+×
+●
+●
+×
+磁盘快照：已成为备份应用主流      在磁盘快照产品方面，NetApp、HDS、HP与IBM的
+许多存储系统本身就已内建快照，可为本机上的Volume提供快照。但快照只是这些产品的附加功能，这些产品本质上并不以提供快照服务为目的。而且就备份而言，必须要转存到本机以外的存储装置上才有意义，因此必须结合远程复制机制，才能成为一套完整的数据保护解决方案。
+目前台湾市场上这种结合复制与快照的产品主要有Symantec的Continuous Protection Server（CPS）、微软的Data Protection Manager（DPM）与FalconStor CDP等3款产品，不过若从广义来说，Symantec的Backup Exec System Recovery（BESR）也可归类于这类产品。
+CPS、DPM、FalconStor CDP的运作架构大致是相同的，都是采用两层式架构，先在前端的档案服务器上部署代理程序（Agent），设定好欲保护的档案数据后，透过同步或异步的方式将档案复制到后端的备份主机上。接下来后端备份主机再透过快照，对前端服务器送来的档案定时的撷取快照副本。需要还原时，即可从后端备份主机所产生的多个快照副本中，选择适合的版本还原。
+至于BESR虽也是两层式架构，但运作方式与其它3者相反，是先在前端服务器产生磁盘映像副本，再将副本送到后端指定的存储装置上存储。
+从功能比较表中可看到，FalconStor CDP是其中功能较强大者，可支持的应用程序类型最丰富，而且快照版本也最多，还可透过SAN Boot方式，让前端服务器透过后端的镜像Volume开机运作，让系统在短时间内恢复运作。不过由于FalconStor CDP是与硬件结合成应用服务器销售，虽然易于部署，但相对的价格也最高（用户须同时负担硬件费用）。至于DPM与CPS功能则相当接近，都只能支持Windows环境的档案备份，不过微软预订在今年推出的新版DPM中增加Exchange与SQL Server的支持。另外CPS虽然可以独立运作，但Symantec把CPS纳入Backup Exec 11d一起销售。
+要特别注意的是，除了FalconStor CDP for Enterprise可支持非Windows平台外，其余产品都只能支持Windows环境，因此若有非Windows平台需要保护的用户，还是只能选择传统的备份软件。
+频繁快照产品功能比较
+厂牌
+FalconStor
+Microsoft
+Symantec
+产品名称
+FalconStor CDP
+DPM 2006
+CPS*
+产品类型
+应用服务器
+软件
+软件
+复制类型
+实时
+定期排程
+实时
+每Volume快照份数
+256
+64
+64
+支持应用程序
+Windows档案
+●
+●
+●
+Oracle
+●
+×
+×
+MS SQL
+●
+×
+×
+Informix
+●
+×
+×
+Sybase
+●
+×
+×
+IBM DB2
+●
+×
+×
+Exchange
+●
+×
+●**
+Lotus Notes
+●
+×
+×
+SAP R/3
+●
+×
+×
+*CPS为Backup Exec的一部份。
+**需透过Backup Exec 11d主程序才能支持Exchange。
+CDP：仍处于发韧期，实际应用有限      CDP是新兴的先进存储技术，目前在台湾还没有大规模应用。台湾可以看到的产品有CA的XOsoft Enterprise Rewinder，EMC RecoverPoint、DataCore Traveller CPR、HP StorageWorks系列中的Continuous Information Capture（CIC）与新增CDP journal的FalconStor IPStor 5.1等5款产品。      其中CA Rewinder、DataCore Traveller与IPStor是软件，而CIC、RecoverPoint虽然本质上也是软件，但厂商是把它们与硬件搭配成应用服务器出货，如HP的CIC基本上就是DL580G3服务器加上Mendocino的RecoveryOne 1.3软件而成。      这些CDP产品都宣称能捕捉服务器每个I/O，达到任意时间点恢复功能，主要差别在于架构及支持平台与应用程序类型多寡。其中IPStor 5.1与Traveller由于不用在前端部署代理程序，而直接在SAN底下捕捉服务器对Volume的写入动作，只要前端服务器能存取SAN的Volume即可，故不用考虑与前端平台的兼容性。      而RecoverPoint比较特殊，若用户的SAN环境使用Cisco MDS系列交换器并配上SSM卡，交换器即会将服务器通过的I/O自动复制到RecoverPoint应用服务器，因此也与前端服务器平台无关，只要该服务器能存取SAN即可。但若用户没有Cisco MDS，就必须透过部署代理程序才能支持。      至于CIC与Rewinder则需在前端服务器部署代理程序，故对平台的限制也比较多。      当然用户采购时还是要视实际需求与成本、售后服务而定，而不见得是支持类型越多越好。
+CDP产品功能比较
+厂牌
+CA
+DataCore
+EMC
+FalconStor
+HP
+产品名称
+Enterprise Rewinder
+Traveller CPR
+RecoverPoint
+IPStor 5.1 CDP journal
+CIC
+产品类型
+软件
+软件
+应用服务器
+软件
+应用服务器
+被保护服务器平台支持
+Windows
+●
+●
+●
+●
+●
+Linux
+×
+●
+●
+●
+×
+Solaris
+×
+●
+●
+●
+●
+HP-UX
+×
+●
+●
+●
+●
+HP Tru64
+×
+●
+●*
+●
+×
+IBM AIX
+×
+●
+●
+●
+●
+SGI IRIX
+×
+●
+●*
+●
+×
+NetWare
+×
+●
+●*
+●
+×
+Mac OS
+×
+●
+●*
+●
+×
+应用程序支持
+Oracle
+●
+●
+●
+●
+●
+MS SQL
+●
+●
+●
+●
+●
+Informix
+×
+×
+●**
+●
+×
+Sybase
+×
+●
+●**
+●
+●
+IBM DB2
+×
+×
+●**
+●
+●
+Exchange
+●
+●
+●
+●
+●
+Lotus Notes
+×
+×
+●**
+●
+×
+SAP R/3
+×
+×
+●**
+●
+●
+*无Cicsco MDS系列交换器时不能支持。
+**需透过script。

@@ -1,0 +1,5 @@
+浅谈Linux系统在存储中的位置
+本文作者是业内资深的资讯专家Stephen Foskett，来自于GlassHouse Technologies公司。        我拥有的Linux设备多得吓人，这些设备全部都是基础设备，而非交互式的PC机。目前，附加在我的本地网络上的10个设备中，有四个是基于Linux技术的（两个TiVos，一个Linksys路由，一个Linksys NAS），三个是Windows PC（两个Vista，一个Windows Server 2003），其它几个设备运行各种嵌入式操作系统（一个Roku SoundBridge，一个惠普打印机，一个运行QNX的3Com Audrey）。
+值得注意的是，我所有的PC都运行Windows操作系统，而我的服务器全部运行Linux系统！使我觉得很奇怪是，在企业存储中Linux在扮演什么样的角色。毫无疑问，Linux在程式化计算方面起着举足轻重的作用。但是哪些企业的存储设备是基于Linux内核的？
+几年前，Xiotech公司宣布他们将进行从自有的操作系统到Linux的转换，当时真可谓是一石激起千层浪。我记得在什么地方看见过基于iSCSI软件的Open-E的Linux，并且也听说过Snap Appliance（现在是Adaptec的一部分）正在使用它。我咨询了LinuxDevices.com，发现Infrant (现在属于NetGear), MaXXan (原名为CipherMax) 以及 Raidtec公司都在使用Linux。
+但是像我这样的用户想知道的更多！因此，告诉我，谁正在把Linux当作他们的嵌入式内核使用，为什么？因为它方便、好用，或是因为硬件支持，又或是因为它省钱？

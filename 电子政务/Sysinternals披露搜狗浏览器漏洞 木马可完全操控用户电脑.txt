@@ -1,0 +1,8 @@
+Sysinternals披露搜狗浏览器漏洞 木马可完全操控用户电脑
+近日国外著名技术网站Sysinternals有消息称，中国软件产品搜狗浏览器存在一个“缓冲区溢出漏洞”(Buffer Overflow Vulnerability)，网页攻击者可利用漏洞在搜狗用户电脑上运行任意代码，包括以管理员权限植入病毒并控制系统。
+Sysinternals论坛“漏洞猎手”(huntvulnerable)宣称，搜狗浏览器很容易受到“缓冲区溢出”漏洞攻击，影响搜狗浏览器官方版本和之前的版本。根据“漏洞猎手”贴出的演示图片，搜狗浏览器在打开一个网页时，电脑中的计算器程序被网页自动调起打开。如果黑客将计算器换为病毒，国内千万级搜狗用户将面临严重风险。
+Sysinternals是微软收购的一家技术网站，曾经以提供Windows系统工具下载而闻名全球，Sysinternals论坛则是该网站的交流平台，里面会不定期发布各类漏洞信息。
+有研究人员表示，“搜狗浏览器使用Chrome内核，但内核版本较低且不常更新，因此才会出现上述高危漏洞”。也有声音认为，搜狗使用过期的Google Chrome内核，很可能是其在微软旗下网站被爆漏洞的原因。
+目前，国内部分安全论坛已关注到搜狗浏览器漏洞，并将漏洞信息上报到搜狗官方网站。但截至发稿前，搜狗公司仍未对漏洞情况做出回应。
+Sysinternals网站披露搜狗浏览器漏洞原文：
+http://forum.sysinternals.com/sogou-explorer-buffer-overflow-vulnerability_topic27040.html

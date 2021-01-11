@@ -1,0 +1,72 @@
+元旦期间计算机病毒应急小组成员值班表（12月30日--1月1日）
+为保障我国计算机网络系统的安全运行，防止再度爆发大面积的病毒疫情，做好及时有效的病毒预警和应急工作。国家计算机病毒应急处理中心组织各病毒防治产品生产厂家，在2008年元旦放假期间开通病毒应急小组各成员求助电话及电子邮件（见下表）。在做好节日期间的计算机病毒应急服务工作的同时，国家计算机病毒应急处理中心将继续监控互联网的计算机病毒动态，防范各种利用计算机病毒破坏我国的计算机网络事件的发生。
+公司名称
+联系人
+电话或邮箱
+备注
+飞塔信息科技(天津)有限公司
+王伟
+wwang@fortinet.com
+12月30日
+张汝海
+rhzhang@fortinet.com
+12月31日
+谢东
+dxie@fortinet.com
+1月1日
+北京江民新科技术有限公司
+严绍文
+yanshaowen@jiangmin.com
+何公道
+hegongdao@jiangmin.com
+上海方正信息安全技术有限公司
+王晓东
+wang.xd@founder.com
+12月30日
+王伟
+wang.w@founder.com
+12月31日
+戴颖
+daiying@founder.com
+1月1日
+北京瑞星科技股份有限公司
+刘刚
+liugang@rising.com.cn
+刘锋
+liufeng@rising.com.cn
+北京金山软件有限公司
+李敏
+limin@kingsoft.net
+陈睿
+0756-3335688-2756
+戴光剑
+daiguangjian@kingsoft.net
+北京冠群金辰软件有限公司
+刘烁
+liu.shuo@ca-jc.com
+孟东
+Meng.dong@ca-jc.com
+北京卡巴斯基科技有限公司
+白韬
+baitao@kaspersky.com.cn
+刘海峰
+liuhaifeng@kaspersky.com.cn
+赛门铁克公司
+010-8006100303
+9:00-18:00
+安博士信息安全技术有限公司
+杨俊强
+yangjq@ahn.com.cn
+初建豪
+cjh@ahn.com.cn
+附各厂家网址：盼达信息安全技术有限公司http://www.pandaguard.com北京江民新科技术有限公司    http://www.jiangmin.com
+北京冠群金辰软件有限公司    http://www.kill.com.cn
+北京安博士信息安全技术有限公司    http://www.ahn.com.cn
+北京北信源自动化技术有限公司    http://www.vrv.com.cn
+北京金山软件有限公司    http://www.duba.net
+北京瑞星科技股份有限公司    http://www.rising.com.cn
+趋势网络科技(中国)有限公司    http://www.trendmicro.com.cn
+赛门铁克公司    http://www.symantec.com/region/cn
+北京卡巴斯基科技有限公司
+http://www.kaspersky.com.cn
+美国飞塔有限公司http://www.fortinet.com.cn

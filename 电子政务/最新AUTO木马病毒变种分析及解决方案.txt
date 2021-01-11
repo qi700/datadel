@@ -1,0 +1,44 @@
+最新AUTO木马病毒变种分析及解决方案
+Win32.Troj.AutoRun.te.v是一个AUTO病毒。病毒成功运行后，会在各盘中生成具有隐藏属性的AUTO病毒，注册表被病毒修改后，具有隐藏属性的文件无法查看。
+病毒全名　Win32.Troj.AutoRun.te.v
+病毒长度　89280
+威胁级别　★★
+中文名称　AUTO特务89280
+病毒类型　木马下载器
+病毒简介
+这是一个AUTO病毒。病毒成功运行后，会在各盘中生成具有隐藏属性的AUTO病毒，注册表被病毒修改后，具有隐藏属性的文件无法查看。众多启动项被病毒删除，包括杀软、系统的启动项，这样会导致机器重启后，杀软失效，使用户机器安全性大大降低。而且该病毒还有破坏安全模式、下载病毒的功能。
+病毒行为
+1.病毒运行后，生成以下病毒文件
+%temp%\RarSFX0
+(系统临时文件，开始、运行、输入%temp%可打开该文件夹，
+可使用清理专家的垃圾文件清理功能删除，删除不掉的文件，
+可能是正在运行中。)
+%windows%\system32\Com\LSASS.EXE
+%windows%\system32\Com\netcfg.000
+%windows%\system32\Com\netcfg.dll
+%windows%\system32\Com\SMSS.EXE
+%Local Settings%\Temporary Internet Files\Content.IE5\EC5UKR17\r[1].htm
+%Local Settings%\Temporary Internet Files\Content.IE5\GR8I0NOH\CAYNKA2Y.HTM
+2.在各盘中生成AUTO病毒，包括病毒文件pagefile.pif和autorun.inf辅助文件，都具有隐藏属性。
+3.病毒会修改注册表，使系统的隐藏功能失效，用户无法操控，只要具有隐藏属性的文件将无法显示。
+4.查看启动项，异常的发现启动项中许多系统启动项都被自动删除，包括毒霸的启动项。
+5.由于启动项被删除，再使用反间谍的隐蔽软件扫描，也就可以看到有两个隐蔽软件，分别是："异常的autorun.inf"和"Broken SafeBoot"，Broken SafeBoot很明显是破坏安全模式的，这样会使用户中了该病毒以后无法进入安全模式。
+6.该病毒还会引发ARP欺骗，导致在同一局域望网内的机器都有被欺骗的可能，明显的症状是：网络时常断开，会有病毒下载到总ARP的机器。
+解决方案：
+1.将以下文件使用清理专家彻底删除
+%temp%\RarSFX0(系统临时文件，开始、运行、输入%temp%可打开该文件夹，
+可使用清理专家的垃圾文件清理功能删除，删除不掉的文件，可能是正在运行中。)
+%windows%\system32\Com\LSASS.EXE(下面这4个文件可以用清理专家的粉碎器搞定)
+%windows%\system32\Com\netcfg.000
+%windows%\system32\Com\netcfg.dll
+%windows%\system32\Com\SMSS.EXE
+%Local Settings%\Temporary Internet Files\Content.IE5\EC5UKR17\r[1].htm
+(病毒藏在IE缓存文件夹中，清理专家清理垃圾文件或删除隐
+私信息的功能也可以快速清空该文件夹)
+%Local Settings%\Temporary Internet Files\Content.IE5\GR8I0NOH\CAYNKA2Y.HTM
+2.重启电脑，再运行清理专家，在系统修复中，把引用以上几个文件的加载项全部清除。
+3.清理专家的恶意软件查杀功能，可以同时修复被破坏的安全模式。
+预防措施：
+1.AUTO类病毒，都是利用移动存储介质的自动播放功能传播的。强烈建议使用金山清理专家或毒霸禁用自动播放功能。
+2.修补操作系统漏洞、IE漏洞、常用播放器的漏洞，防止病毒通过系统漏洞入侵。
+3.及时升级杀毒软件。

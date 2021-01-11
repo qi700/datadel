@@ -1,0 +1,102 @@
+恶意网页病毒十三大症状分析及简单修复方法
+一、对IE浏览器产生破坏的网页病毒：
+（一）.默认主页被修改
+1.破坏特性：默认主页被自动改为某网站的网址。
+2.表现形式：浏览器的默认主页被自动设为如********.COM的网址。
+3.清除方法：采用手动修改注册表法，开始菜单－>运行－>regedit->确定，打开注册表编辑工具，按顺序依次打开：HKEY_LOCAL_USER\\Software\\Microsoft\\Internet Explorer\\Main　分支，找到Default_Page_URL键值名(用来设置默认主页)，在右窗口点击右键进行修改即可。按F5键刷新生效。
+危害程度：一般
+（二）.默认首页被修改
+1.破坏特性：默认首页被自动改为某网站的网址。
+2.表现形式：浏览器的默认主页被自动设为如********.COM的网址。
+3.清除方法：采用手动修改注册表法，开始菜单－>运行－>regedit->确定，打开注册表编辑工具，按如下顺序依次打开：HKEY_LOCAL_USER\\Software\\Microsoft\\Internet Explorer\\Main分支，找到StartPage键值名(用来设置默认首页)，在右窗口点击右键进行修改即可。按F5键刷新生效。
+危害程度：一般
+（三）.默认的微软主页被修改
+1.破坏特性：默认微软主页被自动改为某网站的网址。
+2.表现形式：默认微软主页被篡改。
+3.清除方法：
+(1)手动修改注册表法：开始菜单－>运行－>regedit->确定，打开注册表编辑工具，按如下顺序依次打开：HKEY_LOCAL_MACHINE\\Software\\Microsoft\\InternetExplorer\\Main　分支，找到Default_Page_URL键值名(用来设置默认微软主页)，在右窗口点击右键，将键值修改为 http://www.microsoft.com/windows/ie_intl/cn/start/ 即可。按F5键刷新生效。
+(2)自动文件导入注册表法：请把以下内容输入或粘贴复制到记事本内，以扩展名为reg的任意文件名存在C盘的任一目录下，然后执行此文件，根据提示，一路确认，即可显示成功导入注册表。
+REGEDIT4
+[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Internet Explorer\\Main] 　　\"default_page_url\"=\"http://www.microsoft.com/windows/ie_intl/cn/start/\";
+危害程度：一般
+（四）.主页设置被屏蔽锁定，且设置选项无效不可更改
+1.破坏特性：主页设置被禁用。
+2.表现形式：主页地址栏变灰色被屏蔽。
+3.清除方法：(1)手动修改注册表法：开始菜单－>运行－>regedit->确定，打开注册表编辑工具，按如下顺序依次打开：HKEY_CURRENT_USER\\Software\\Microsoft\\InternetExplorer\\分支，新建“ControlPanel”主键，然后在此主键下新建键值名为“HomePage”的DWORD值，值为“00000000”，按F5键刷新生效。
+(2)自动文件导入注册表法：请把以下内容输入或粘贴复制到记事本内，以扩展名为reg的任意文件名存在C盘的任一目录下，然后执行此文件，根据提示，一路确认，即可显示成功导入注册表。
+REGEDIT4
+[HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Internet Explorer\\Control Panel]
+\"HomePage\"=dword:00000000
+危害程度：轻度
+（五）.默认的IE搜索引擎被修改
+1.破坏特性：将IE的默认微软搜索引擎更改。
+2.表现形式：搜索引擎被篡改。
+3.清除方法：(1)手动修改注册表法：开始菜单－>运行－>regedit->确定，打开注册表编辑工具，第一，按如下顺序依次打开：HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Internet Explorer\\Search分支，找到“SearchAssistant”键值名，在右面窗口点击“修改”，即可对其键值进行输入为： http://ie.search.msn.com/{SUB_RFC1766}/srchasst/srchasst.htm ，然后再找到“CustomizeSearch”键值名，将其键值修改为： http://ie.search.msn.com/{SUB_RFC1766}/srchasst/srchasst.htm ，按F5键刷新生效。
+(2)自动文件导入注册表法：请把以下内容输入或粘贴复制到记事本内，以扩展名为reg的任意文件名存在C盘的任一目录下，然后执行此文件，根据提示，一路确认，即可显示成功导入注册表。
+REGEDIT4　　[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\InternetExplorer\\Search]
+\"SearchAssistant\"=\"http://ie.search.msn.com/{SUB_RFC1766}/srchasst/srchasst.htm\"
+\"CustomizeSearch\"=\"http://ie.search.msn.com/{SUB_RFC1766}/srchasst/srchasst.htm\"
+危害程度：一般
+（六）.IE标题栏被添加非法信息
+1.破坏特性：通过修改注册表，使IE标题栏被强行添加宣传网站的广告信息。
+2.表现形式：在IE顶端蓝色标题栏上多出了什么“正点网，即使正点网！ http://www.zhengdian.com \"尾巴。
+3.清除方法：(1)手动修改注册表法：开始菜单－>运行－>regedit->确定，打开注册表编辑工具，第一，按如下顺序依次打开：HKEY_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\Main分支，找到“Window Title”键值名，输入键值为Microsoft Internet Explorer，按F5刷新。
+第二，按如下顺序依次打开：HKEY_CURRENT_MACHINE\\Software\\Microsoft\\InternetExplorer\\Main分支，找到“Window Title”键值名，输入键值为Microsoft Internet Explorer，按F5刷新生效。
+(2)自动文件导入注册表法：请把以下内容输入或粘贴复制到记事本内，以扩展名为reg的任意文件名存在C盘的任一目录下，然后执行此文件，根据提示，一路确认，即可显示成功导入注册表。
+REGEDIT4
+[HKEY_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\Main]
+\"Window Title\"=\"Microsoft Internet Explorer\"
+[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Internet Explorer\\Main]
+\"Window Title\"=\"Microsoft Internet Explorer\"
+危害程度：一般
+（七）.OE标题栏被添加非法信息破坏特性：
+破坏特性：通过修改注册表，在微软的集成电子邮件程序Microsoft Outlook顶端标题栏添加宣传网站的广告信息br]
+表现形式：在顶端的Outlook Express蓝色标题栏添加非法信息。
+清除方法：(1)手动修改注册表法：开始菜单－>运行－>regedit->确定，打开注册表编辑工具，按如下顺序依次打开：HKEY_LOCAL_USER\\Software\\Microsoft\\Outlook Express分支，找到WindowTitle以及Store Root键值名，将其键值均设为空。按F5键刷新生效。
+(2)自动文件导入注册表法：请把以下内容输入或粘贴复制到记事本内，以扩展名为reg的任意文件名存在C盘的任一目录下，然后执行此文件，根据提示，一路确认，即可显示成功导入注册表。
+REGEDIT4
+[HKEY_CURRENT_USER\\Software\\Microsoft\\Outlook Express]
+\"WindowTitle\"=\"\"
+\"Store Root\"=\"\"
+危害程度：一般
+（八）.鼠标右键菜单被添加非法网站链接：
+1.破坏特性：通过修改注册表，在鼠标右键弹出菜单里被添加非法站点的链接。
+2.表现形式：添加“网址之家”等诸如此类的链接信息。
+3.清除方法：(1)手动修改注册表法：开始菜单－>运行－>regedit->确定，打开注册表编辑工具，按如下顺序依次打开：HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Internet Explorer\\MenuExt分支，在左边窗口凡是属于非法链接的主键一律删除，按F5键刷新生效。
+4.危害程度：一般
+（九）.鼠标右键弹出菜单功能被禁用失常：
+1.破坏特性：通过修改注册表，鼠标右键弹出菜单功能在IE浏览器中被完全禁止。
+2.表现形式：在IE中点击右键毫无反应。
+3.清除方法：(1)手动修改注册表法：开始菜单－>运行－>regedit->确定，打开注册表编辑工具，按如下顺序依次打开：HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Internet Explorer\\Restrictions分支，找到“NoBrowserContextMenu”键值名，将其键值设为“00000000”，按F5键刷新生效。
+(2)自动文件导入注册表法：请把以下内容输入或粘贴复制到记事本内，以扩展名为reg的任意文件名存在C盘的任一目录下，然后执行此文件，根据提示，一路确认，即可显示成功导入注册表。
+REGEDIT4
+[HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Internet Explorer\\Restrictions]
+\"NoBrowserContextMenu\"=dword:00000000
+危害程度：轻度
+（十）.IE收藏夹被强行添加非法网站的地址链接
+破坏特性：通过修改注册表，强行在IE收藏夹内自动添加非法网站的链接信息。
+表现形式：躲藏在收藏夹下。
+清除方法：请用手动直接清除，用鼠标右键移动至该非法网站信息上，点击右键弹出菜单，选择删除即可。
+危害程度：一般
+（十一）.在IE工具栏非法添加按钮
+破坏特性：工具栏处添加非法按钮。
+表现形式：有按钮图标。
+清除方法：直接点击鼠标右键弹出菜单，选择“删除”即可。
+危害程度：一般
+（十二）.锁定地址栏的下拉菜单及其添加文字信息
+破坏特性：通过修改注册表，将地址栏的下拉菜单锁定变为灰色。
+表现形式：不仅使下拉菜单消失，而且在其上覆盖非法文字信息。
+清除方法：(1)手动修改注册表法：开始菜单－>运行－>regedit->确定，打开注册表编辑工具，按如下顺序依次打开：HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Internet Explorer\\Toolbar分支，在右边窗口找到“LinksFolderName”键值名，将其键值设为“链接”，多余的字符一律去掉，按F5键刷新生效。
+危害程度：轻度
+（十三）.IE菜单“查看”下的“源文件”项被禁用
+破坏特性：通过修改注册表，将IE菜单“查看”下的“源文件”项锁定变为灰色。
+表现形式：“源文件”项不可用。
+清除方法：(1)手动修改注册表法：开始菜单－>运行－>regedit->确定，打开注册表编辑工具，第一，按如下顺序依次打开：HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Internet Explorer\\Restrictions分支，找到\"NoViewSource\"键值名，将其键值设为“00000000”，按F5键刷新生效。
+按如下顺序依次打开：HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Internet Explorer\\Restrictions分支，找到\"NoViewSource\"键值名，将其键值设为“00000000”，按F5键刷新生效。
+(2)自动文件导入注册表法：请把以下内容输入或粘贴复制到记事本内，以扩展名为reg的任意文件名存在C盘的任一目录下，然后执行此文件，根据提示，一路确认，即可显示成功导入注册表。
+REGEDIT4
+[HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Internet Explorer\\Restrictions]
+\"NoViewSource\"=dword:00000000
+[HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Internet Explorer\\Restrictions]
+\"NoViewSource\"=dword:00000000
+危害程度：轻度

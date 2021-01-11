@@ -1,0 +1,12 @@
+计算机病毒预报  (9.4-9.10)
+病毒名称：“进程间谍变种df”(Hack.ProAgent.df)
+危害程度：中     受影响的系统: Windows 95, Windows 98, Windows Me, Windows NT, Windows 2000, Windows XP, Windows Server 2003     未受影响的系统: Windows 3.x, Macintosh, Unix, Linux
+病毒危害：     1.释放大量病毒文件     2.关闭反病毒软件其服务进程     3.发送用户信息到指定邮箱     4.监听端口，等待黑客入侵
+感染形式： 该病毒为黑客后门病毒,中毒后会释放大量病毒文件C:/DOCUME~1/AdminLOCALS~1/Tempserver..exe     %windows%/server..exe     %windows%/qservice.exe     %windows%/services.dll     %windows%/kurlmon.dll     %windows%/k_urlmon.dll     %windows%/msehk.dll     %system%/bszip.dll     %system%/hookMpi.dll     %system%/agnt_fps.exe     %system%/agnt_mps.exe     %system%/agnt_pnc.exe     %system%/driverskeensense.sys     %system%/driversksdevice.sys     其中server..exe、qservice.exe、services.dll为主要病毒文件，查找系统中的反病毒软件，并关闭其服务进程。连接网络，并发送用户信息到指定邮箱，并监听特定端口，等待黑客连接。
+预防和清除：     建立良好的安全习惯，不打开可疑邮件和可疑网站；建议亲爱的电脑用户不要随便运行不知名程序或打开陌生人邮件的附件，以免中毒受损。          病毒名称：“网游大盗变种aa”（Trojan/PSW.GamePass.aa）     危害程度：中     受影响的系统: Windows 95, Windows 98, Windows Me, Windows NT, Windows 2000, Windows XP, Windows Server 2003     未受影响的系统: Windows 3.x, Macintosh, UNIX, Linux
+病毒危害：     1.自我复制到Windows目录下     2.修改注册表，实现开机自启     3.生成病毒文件侦听黑客指令     4.盗取玩家账号和密码
+感染形式：     这是一个盗取多款网络游戏玩家账号和密码的木马。病毒运行后，自我复制到Windows目录下。修改注册表，实现开机自启。在D盘下生成autorun.inf和pagefile.pif病毒文件，侦听黑客指令，盗取包括魔兽世界、传奇世界、征途、梦幻西游、边锋游戏等多款网络游戏玩家账号和密码，对网络游戏玩家的游戏装备构成了极大的威胁。
+预防和清除：     建立良好的安全习惯，关闭或删除系统中不需要的服务；很多病毒利用漏洞传播，一定要及时给系统打补丁；安装专业的防毒软件进行实时监控，平时上网的时候一定要打开防病毒软件的实时监控功能。          病毒名称：“代理木马下载器变种KQJ”(Trojan.DL.Agent.kqj)     危害程度：中低     受影响的系统: Windows 95, Windows 98, Windows Me, Windows NT, Windows 2000, Windows XP, Windows Server 2003     未受影响的系统: Windows 3.x, Macintosh, Unix, Linux
+病毒危害：     1．通过网络、软件捆绑传播     2．下载并运行木马病毒     3．诱骗用户输入账号和密码     4．发送给黑客，从而给用户带来经济损失
+感染形式：     国内某著名证券公司的官方网站被黑客攻击，其网站提供的“证券交易系统”、“证券分析”等软件均被捆绑上了“代理木马下载器变种KQJ”病毒，用户安装这些软件时就可能被病毒感染。该病毒运行后会自动从互联网http//www.????. org/svchost.exe下载并运行木马病毒，下载的病毒会假冒成网络银行的交易界面，诱骗用户输入账号和密码等信息，并把这些信息发送给黑客，从而给用户带来经济损失。
+预防和清除：     建立良好的安全习惯，不打开可疑邮件和可疑网站；建议亲爱的电脑用户不要轻易运行从Internet下载后未经杀毒软件处理的文件，当操纵者控制用户电脑时，就可直接导致用户的信息被泄露， 为了您系统和个人信息的安全，专家建议用户在打开一个陌生文件时，请用最新病毒库的杀软进行扫描。

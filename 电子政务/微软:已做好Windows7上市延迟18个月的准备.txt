@@ -1,0 +1,6 @@
+微软:已做好Windows7上市延迟18个月的准备
+9月19日消息，据国外媒体报道，微软开发经理Greg Elston近日透露，尽管下一代操作系统Windows 7计划于2010年上市，但微软已做好了延迟18个月的准备。
+微软今年7月宣布，计划在3年内推出继Windows Vista之后的新版操作系统，内部代号为Windows 7。
+但日前， Elston在谈论Vista SP1时，无意透露出了Windows 7延迟的消息。Elston认为，用户目前需要的是Windows XP系统。因此，Vista SP1应该允许用户返回到XP系统。
+Elston认为，此举不仅可以提高用户对Vista的满意度，还能集中更多资源用于开发下一代操作系统Windows 7。
+Elston说：“我们可以停止开发Vista，转向Windows 7。这样，Windows 7的上市日期将只延迟13个月，而不是此前计划的18个月。”

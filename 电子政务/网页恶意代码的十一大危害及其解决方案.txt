@@ -1,0 +1,113 @@
+网页恶意代码的十一大危害及其解决方案
+（一）如何在注册表被锁定的情况下修复注册表
+注册表被锁定这一招是比较恶毒的，它使普遍用户即使会简单修改注册表使其恢复的条件下，困难又多了一层。症状是在开始菜单中点击“运行”，在运行框中输入regedit命令时，注册表不能够使用，并发现系统提示你没有权限运行该程序，然后让你联系系统管理员。
+这是由于注册表编辑器：
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System下的DWORD值“DisableRegistryTools”被修改为“1”的缘故，将其键值恢复为“0”即可恢复注册表的使用。
+解决办法:
+（1）可以自己动手制作一个解除注册表锁定的工具，就是用记事本编辑一个任意名字的.reg文件，比如recover.reg，内容如下：
+REGEDIT4
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System]
+"DisableRegistryTools"=dword:00000000
+要特别注意的是：如果你用这个方法制作解除注册表锁定的工具，一定要严格按照上面的书写格式进行，不能遗漏更不能修改（其实你只需将上述内容“复制”、“粘贴”到你机器记事本中即可）；完成上述工作后，点击记事本的文件菜单中的“另存为”项，文件名可以随意，但文件扩展名必须为.reg（切记）,然后点击“保存”。这样一个注册表解锁工具就制作完成了，之后你只须双击生成的工具图标，其会提示你是否将这个信息添加进注册表，你要点击“是”，随后系统提示信息已成功输入注册表，再点击“确定”即可将注册表解锁了。
+(2)也可以直接下载下面这个解锁工具，下载完成运行后可直接解锁注册表编辑器：
+http://it.rising.com.cn/antivirus/net_virus/spiteful/enable.reg
+（二）篡改IE的默认页
+有些IE被改了起始页后，即使设置了“使用默认页”仍然无效，这是因为IE起始页的默认页也被篡改了。具体说就是以下注册表项被修改：
+HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\Default_Page_URL
+“Default_Page_URL”这个子键的键值即起始页的默认页。
+解决办法：
+运行注册表编辑器，然后展开上述子键，将“Default_Page_UR”子键的键值中的那些篡改网站的网址改掉就行了，或者将其设置为IE的默认值。
+（三）修改IE浏览器缺省主页，并且锁定设置项，禁止用户更改
+主要是修改了注册表中IE设置的下面这些键值(DWORD值为1时为不可选)：
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Control Panel
+"Settings"=dword:1
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Control Panel
+"Links"=dword:1
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Control Panel
+"SecAddSites"=dword:1
+解决办法：
+将上面这些DWORD值改为“0”即可恢复功能。
+（四）IE的默认首页灰色按扭不可选
+这是由于注册表HKEY_USERS\.DEFAULT\Software\Policies\Microsoft\Internet Explorer\Control Panel
+下的DWORD值“homepage”的键值被修改的缘故。原来的键值为“0”，被修改后为“1”（即为灰色不可选状态）。
+解决办法：
+将“homepage”的键值改为“0”即可。
+（五）IE标题栏被修改
+在系统默认状态下，是由应用程序本身来提供标题栏的信息，但也允许用户自行在上述注册表项目中填加信息，而一些恶意的网站正是利用了这一点来得逞的：它们将串值Window Title下的键值改为其网站名或更多的广告信息，从而达到改变浏览者IE标题栏的目的。
+具体说来受到更改的注册表项目为：
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main\Window Title
+HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main\Window Title
+解决办法：
+①在Windows启动后，点击“开始”→“运行”菜单项，在“打开”栏中键入regedit，然后按“确定”键；
+②展开注册表到
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main下，在右半部分窗口中找到串值“Window Title” ，将该串值删除即可，或将Window Title的键值改为“IE浏览器”等你喜欢的名字；
+③同理，展开注册表到
+HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main
+然后按②中所述方法处理。
+④退出注册表编辑器，重新启动计算机，运行IE，你会发现困扰你的问题被解决了！
+（六）IE右键菜单被修改
+受到修改的注册表项目为：
+HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\MenuExt
+下被新建了网页的广告信息，并由此在IE右键菜单中出现！
+解决办法：
+打开注册标编辑器，找到
+HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\MenuExt
+删除相关的广告条文即可，注意不要把下载软件FlashGet和Netants也删除掉，这两个可是“正常”的，除非你不想在IE的右键菜单中见到它们。
+（七）IE默认搜索引擎被修改
+在IE浏览器的工具栏中有一个搜索引擎的工具按钮，可以实现网络搜索，被篡改后只要点击那个搜索工具按钮就会链接到那个篡改网站。出现这种现象的原因是以下注册表被修改：
+HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Search\CustomizeSearch
+HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Search\SearchAssistant
+解决办法：
+运行注册表编辑器，依次展开上述子键，将“CustomizeSearch”和“SearchAssistant”的键值改为某个搜索引擎的网址即可。
+（八）系统启动时弹出对话框
+受到更改的注册表项目为：
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Winlogon
+在其下被建立了字符串“LegalNoticeCaption”和“LegalNoticeText”，其中“LegalNoticeCaption”是提示框的标题，“LegalNoticeText”是提示框的文本内容。由于它们的存在，就使得我们每次登陆到Windwos桌面前都出现一个提示窗口，显示那些网页的广告信息！
+解决办法：
+打开注册表编辑器，找到
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Winlogon
+这一个主键，然后在右边窗口中找到“LegalNoticeCaption”和“LegalNoticeText”这两个字符串，删除这两个字符串就可以解决在登陆时出现提示框的现象了。
+（九）IE默认连接首页被修改
+IE浏览器上方的标题栏被改成“欢迎访问……网站”的样式，这是最常见的篡改手段，受害者众多。
+受到更改的注册表项目为：
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main\Start Page
+HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main\Start Page
+通过修改“Start Page”的键值，来达到修改浏览者IE默认连接首页的目的，如浏览“万花谷”就会将你的IE默认连接首页修改为“http://on888.home.chinaren.com ”，即便是出于给自己的主页做广告的目的，也显得太霸道了一些，这也是这类网页惹人厌恶的原因。
+解决办法：
+①在Windows启动后，点击“开始”→“运行”菜单项，在“打开”栏中键入regedit，然后按“确定”键；
+②展开注册表到
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main下，在右半部分窗口中找到串值“Start Page”双击 ，将Start Page的键值改为“about:blank”即可；
+③同理，展开注册表到
+HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main
+在右半部分窗口中找到串值“Start Page”，然后按②中所述方法处理。
+④退出注册表编辑器，重新启动计算机，一切OK了！
+特殊例子：当IE的起始页变成了某些网址后，就算你通过选项设置修改好了，重启以后又会变成他们的网址啦，十分的难缠。其实他们是在你机器里加了一个自运行程序，它会在系统启动时将你的IE起始页设成他们的网站。
+解决办法：运行注册表编辑器regedit.exe，然后依次展开
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Current Version\Run
+主键，然后将其下的registry.exe子键删除，然后删除自运行程序c:\Program Files\registry.exe，最后从IE选项中重新设置起始页。
+（十）IE中鼠标右键失效
+浏览网页后在IE中鼠标右键失效，点击右键没有任何反应！
+有的网络流氓为了达到其恶意宣传的目的，将你的右键弹出的功能菜单进行了修改，并且加入了一些乱七八糟的东西，甚至为了禁止你下载，将IE窗口中单击右键的功能都屏蔽掉。
+解决办法：
+1.右键菜单被修改。打开注册表编辑器，找到HKEY_CURRENT_USER＼Software＼Microsoft＼Internet Explorer＼MenuExt，删除相关的广告条文。
+2.右键功能失效。打开注册表编辑器，展开到HKEY_CURRENT_USER＼Software＼Policies＼Microsoft＼Internet Explorer＼Restrictions，将其DWORD值"NoBrowserContextMenu"的值改为0。
+（十一）查看“源文件”菜单被禁用
+在IE窗口中点击“查看”→“源文件”，发现“源文件”菜单已经被禁用。
+恶意网页修改了注册表，具体的位置为：
+在注册表
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer
+下建立子键“Restrictions”，然后在“Restrictions”下面建立两个DWORD值：
+“NoViewSource”和“NoBrowserContextMenu”，并为这两个DWORD值赋值为“1”。
+在注册表
+HKEY_USERS\.DEFAULT\Software\Policies\Microsoft\Internet Explorer\Restrictions
+下，将两个DWORD值：“NoViewSource”和“NoBrowserContextMenu”的键值都改为了“1”。
+通过上面这些键值的修改就达到了在IE中使鼠标右键失效，使“查看”菜单中的“源文件”被禁用的目的。
+解决办法：
+将以下内容另存为后缀名为.reg的注册表文件，比如说unlock.reg，双击unlock.reg导入注册表，不用重启电脑，重新运行IE就会发现IE的功能恢复正常了。
+REGEDIT4
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Restrictions
+“NoViewSource”=dword:00000000
+"NoBrowserContextMenu"=dword:00000000
+HKEY_USERS\.DEFAULT\Software\Policies\Microsoft\Internet Explorer\Restrictions
+“NoViewSource”=dword:00000000
+“NoBrowserContextMenu”=dword:00000000

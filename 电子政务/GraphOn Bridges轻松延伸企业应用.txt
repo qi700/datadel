@@ -1,0 +1,15 @@
+GraphOn Bridges轻松延伸企业应用
+行业背景
+随着互联网及内联网络的广泛应用，大小企业皆正寻求一种网络方案，以扩展现存应用软件的延伸性，减省企业用于 IT 的支出。作为发展 web-enable 及 server-based 网络系统的先驱，GraphOn 为企业带来 GO-Global UX/XP——一种不受地点、连接方式、设备及频宽限制的解决，克服长久以来应用软件不能在多种操作系统上运作的困难。
+方案或产品描述
+GO-Global 是一种网络运行的解决方案。它能实时web-enable Linux UNIX、及Windows 应用软件；用者无须重写软件代码，便可将应用软件的丰富功能，透过浏览器，传送至任何已接驳互联网的计算机；远程用者无论于低频宽或高速网络的环境中，亦能通过拨号连接或局域网连接，转驳Bridges 服务器，使用该软件。GO-Global 采用了server-based computing 技术；在中央管理模式下，所有应用程序、软件操作及运算均集中到服务器上进行，用户终端机只负责传送鼠标、点击及接收、显示影像等简单操作。
+1) 优点
+Go-Global带来一个具延伸性的桌面平台为Linux用者提供以下服务：
+●用者能在Linux环境下使用储存于NT服务器的Windows 应用软件●Linux 用者无论身处何地均能利用不同的网络设备透过浏览器延伸桌面使用熟悉的应用软件●用者可透过GO-Global软件通过低频宽拨号连接转驳至Linux桌面平台●在中央管理模式下多方用者能透过任何桌上计算机同时接驳至Linux服务器
+系统运行环境
+产品名称：GO-Global UX 2.0 / GO-Global XP 2.0    网络系统需求：* GO-Global UX – Turbolinux Server    * GO-Global XP – Windows NT service pack 5 & 6 or 2000 Server    30MB硬盘空间    4-6MB 内存/用户
+系统结构图
+GO-Global 网上解决方案：图解用者透过不同的连接方式及设备，转驳至服务器，应用已webenable的应用软件。
+公司简介
+总部位于硅谷的GraphOn 公司(Nasdaq: GOJO)， 为开发web-enabling 及server-based 软件方案的先驱。GraphOn藉互联网科技，为软件的应用模式、速度及效能带来新突破。GraphOn Bridges能实时web-enable 应用软件，无需修改软件程序或额外添置服务器。用者可在任何地方，透过局域网、广域网或互联网，连接使用应用软件。
+透过GraphOn Bridges 软件，用者可通过任何桌面平台及网络连接方式，直接连接及使用不同的应用软件，不受频宽限制。此外，GraphOn Bridges 能协助企业轻易将应用软件延伸至各分行，供远程用者使用；此举不但能大幅降低管理软件的支出，更能减低软件的拥有成本

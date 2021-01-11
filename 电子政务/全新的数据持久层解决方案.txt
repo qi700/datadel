@@ -1,0 +1,60 @@
+全新的数据持久层解决方案
+向大家介绍一个在开发过程产生的一个数据库持久层解决方案.项目的名称:dbcoat, 可以到访问:http://sourceforge.net/projects/dbcoat.本方案的理念：1，简单2，容易学，容易用。    在五到十分钟就可以学会，用户手册只有几页。    ‘你会不会***？‘ 不再成为一个问题。    3, 在数据库外，忘记了是在操作数据库。4. 提供一个解决方案，而不是更多的可选方法。5，舒心顺手     就像它的名字，希望它能像一件为你订做的外套。支持的功能：1，连接池   连接池支持断开自动重新连接，数据库连接支持‘时间’特性。2，缓存(Cache)   1), Cache 是自我管理的，也就是说Cache会自动更新，Cache也有时间限制，      如果限制的时间到了，Cache会被自动删除。   2), 条件Cache. 举例来说，像下面这样设置cache option:
+options.put(Cache.CACHE_RESULT_CONDITION, Cache.condition(8, 100, 2));        上面代码的意思是：       当结果集的数量(size)等于大于8并小于等于100       或搜索的时间大于等于2毫秒时才缓存结果集       条件cache可以让你只在真需要时缓存结果    3), 片断结果集cache. 举例来说，你要浏览10000条结果集，每页200个        像下面这样设置cache option:
+options.put(Cache.CACH_RESULT_RANGE, Cache.range(0, 200, 200, 400, 9800, 10000)) ;       或
+options.put(Cache.CACH_RESULT_RANGE, Cache.range(0, 400, 9800, 10000));        上面代码的意思是：缓存第一页，下一页和最后一页的结果集。       片断结果集cache可以让只缓存必要的结果集。       条件和片断结果集cache可以让你有效地用好cache.    4), 结果集相同的共享同一cache.        假设有100条纪录，id从1到100，        由条件'id >= 1' 和 'id <= 100' 创建的结果集共享同一cache, 如果缓存他们。3，支持join4, 支持数据库函数：count, avg 等。用户导向：1， 准备连接工厂。有两种方式：    a), 写一个像下面xml文件:
+"1.0" encoding="UTF-8"?>
+com.mysql.jdbc.Driver
+jdbc:mysql://localhost:3306/coatTestdb
+root
+1000
+true
+true
+86400
+600
+3
+1000
+创建连接工厂：
+ConnectionFactory connFact = ConnectionFactory.newInstance(new FileInputStream(
+new File(propsFile)));
+b), 在代码里设置连接属性：
+Properties props = new Properties();
+props.setProperty(DRIVER, driver);
+props.setProperty(URL, url);
+props.setProperty(USER, user);
+props.setProperty(PASSWORD, password);
+......
+ConnectionFactory connFact =  ConnectionFactory.newInstance(props); 2， 准备持久对象定义文件：
+......
+Connection conn = connFactgetConnection();
+Database database = new Database(databaseName, conn);
+if (objectDefinitionsFile.exists()) {
+objectDefinitionsFile.delete();
+}
+objectDefinitionsFile.createNewFile();
+OutputStream ou = new FileOutputStream(objectDefinitionsFile);
+Assistant.database2ObjectDefinitionXml(ou, database,
+HelloCoatBase.class.getMethod("columnName2PropName",
+new Class[] { String.class }));
+ou.close();
+......    详细信息查看'helloworld' 例程：        http://sourceforge.net/projects/dbcoat3，用上面准备的连接工厂和持久对象定义文件，创建持久对象管理(ObjectManager)或(Session)实例。
+......
+ConnectionFactory connFactory = ConnectionFactory.newInstance(connProps);
+ObjectDefinitionFactory odfact = ObjectDefinitionFactory.getInstance();
+odfact.create(new FileInputStream(file));
+ObjectManagerFactory omf = ObjectManagerFactory.getInstance(odfact,
+connFactory);
+......
+EntityManager entityManager = omf.getEnityManager();
+EntitySession entitySession = omf.getEntitySession();
+// or
+ObjectManager objectManager = omf.getObjectManager();
+ObjectSession objectSession = omf.getObjectSession();
+......              4，用(ObjectManager)或(Session)实例管理持久对象。
+......
+ObjectEntity oe = new ObjectEntity(Book._);
+oe.setValue(Book.ID, id);
+oe.setValue(Book.NAME, "Gone with the wind");
+oe.setValue(Book.AUTHOR, "Margaret Mitchell");
+entityManager.addObject(oe); // or session.add(oe);
+......

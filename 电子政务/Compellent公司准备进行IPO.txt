@@ -1,0 +1,12 @@
+Compellent公司准备进行IPO
+经过几个月的考虑，7月3日上午，主营SAN业务的Compellent公司正式成为最新的开始首次公开募股（IPO）的存储厂商。今日上午该公司与美国证券交易委员会（U.S. Sec  urities and Exchange Commission，SEC）填写了公司的S-1表。
+摩根斯坦利（Morgan Stanley）公司将成为这家公司募股的承销商（book-running manager），Needham & Co., Piper Jaffray, RBC Capital Markets 以及 Thomas Weisel Partners 成为它的募股协作管理公司（co-managers of the offering）。
+对于此次的IPO，其股票数以及股价范围还没有确定，但Compellent公司计划在今年第三季度的某个时间进行它的首次IPO。
+Compellent公司成立于2002年，经过三轮的融资，目前已经拥有5300万美元。公司管理层考虑进行首次IPO已经有一段时间，如今他们终于做出了这个决定。S-1显示出Compellent公司的收入状况良好，从2005年的不足1000万美元增长到2006年的2330万美元。2007年第一季度的收入是890万美元，而去年同期的收入还只是330万美元。
+尽管公司走的是一条向上的轨道，但是起始阶段还必须完成四分之一的盈利，并且今年三月底公司累积亏损达到了4370万美元。Compellent公司2004、2005、2006三年的净亏损分别是1140万美元、910万美元、680万美元。
+Compellent公司提供FC与iSCSI结合在同一系统内的SAN产品，与一些大名鼎鼎的公司（如EMC等）的SAN产品相比，其产品的成本低得多。这家公司的竞争对手还包括3PAR, Xiotech, EqualLogic, 和 LeftHand Networks公司。Compellent公司计划使用IPO手段增加它的渠道合作伙伴，同时扩大对中小型企业的销售，增加大型企业用户数目。最近几个月里，Compellent公司的用户数目不断增加，SEC（美国证券交易委员会）申请表格上提及美国政府是该公司StorageCenter的“重要的终端用户”。据S-1显示，自从2004年初卖出它的第一批产品以来，Compellent公司已经拥有了550个用户。
+Compellent公司的另一个重点领域是目前非常热门的虚拟化。上周，这家公司宣布与从事虚拟化产品开发的厂商Virtual Iron公司签署了合作销售协议。在去年，他们与VMware公司签署过类似的协议。
+Compellent公司的市场副总裁Bruce Kornfeld说：“我们超过一半的用户都将不同形式的服务器虚拟化产品与他们的Compellent SAN一起使用。”他进一步解释说，律政司在南卡罗来纳的办事处及PGA Tour Superstore是Compellent公司与Virtual Iron公司共同的用户。
+如今，有越来越多的存储厂商都在走IPO的路线。上周，从事重复数据删除业务的Data Domain公司的股票开始上市交易。至此，这家公司也加入了不断壮大的存储行业上市公司的行列，这些上市公司包括Mellanox, Isilon, Double-Take, Riverbed,和 CommVault等。
+而与此相关的领域也有诸多公司也在采取行动。今年年初，数据库专家Netezza公司也填写了自己的S-1表格。最近，虚拟化领域的巨人VMware公司经过其上级公司EMC也在紧锣密鼓地计划着自己的IPO行动，Voltaire and Force10公司也在商讨IPO（首次公开募股）事宜。
+如此浩大的存储公司上市浪潮，一方面反应出存储行业的发展日益成熟，而另一方面则反应出这个行业已经从IT架构五大支柱（网络、数据库、服务器、存储、安全）之一的“沉睡者”逐步苏醒过来，其结果也将带来更为激烈的市场竞争，新旧厂商间的竞争也将更为白热化。但终究而言，对于用户，这样的事情都是好的，没有谁会对性能比越来越高的现状表示不满。

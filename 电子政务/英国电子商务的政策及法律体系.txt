@@ -1,0 +1,10 @@
+英国电子商务的政策及法律体系
+英国重视利用信息技术提升其国际竞争力，采取一系列措施促进电子商务发展，近年来在电子商务的应用范围和规模方面都有了较大发展，在欧盟国家中位居于前列，其电子商务的法律体系建设也同样对我发展电子商务有一定借鉴意义。
+一、政府部门
+商业部（The Department for Business, Enterprise & Regulatory Reform，原贸工部（DTI））为电子商务的主要政府管理部门，其他相关部门还包括：财政部（HM Treasury）、金融管理局（Financial Services Authority）、贸易标准局（Trading Standards Institute）、公平贸易局（Office of Fair Trading）、专利局（Patent Office）等。
+二、主要法规
+英国政府先后出台一系列促进电子商务发展的相关法规和政策，主要包括：《电子商务条例》（Electronic Commerce (EC Directive) Regulations 2002）、《数据保护法》（Data Protection Act 1998）、《远程销售条例》（Distance Selling Regulations 2000）、《电子通信法》（Electronic Communications Act 2000）、《信息自由法》（Freedom of Information Act 2000）、《隐私和电子通信条例》（Privacy and Electronic Communications (EC Directive) Regulations 2003）、《公共部门信息再利用规则》（Re-use of Public Sector Information Regulations 2005）、《通讯法》(Communications Act 2003)等。
+三、欧盟《电子商务指令》
+欧委会于2000年6月出台《电子商务指令》（the Electronic Commerce Directive, 2000/31/EC），旨在通过提供一个灵活、中性的电子商务法律框架，推动成员国电子商务应用和内部统一市场建设，并要求成员国在2002年1月17日前根据该法令制订本国电子商务条例。根据要求，各成员国均设立了国家电子商务联系点。2003年11月欧委会发布了对《电子商务指令》应用情况的评估报告，总体认为该指令取得了积极的效果。该报告指出，欧盟电子商务，包括在线市场、B2B、B2C、在线财务等都有较快发展，截至2002年，70%的欧盟企业建立了自己的网站，估计2003年B2C营业额达到700亿欧元，2006年54%的欧洲互联网用户会在线购物。
+四、英国《电子商务条例》
+2002年8月，英国政府根据欧盟《电子商务指令》制订了《电子商务条例》，包括对网上信息和服务提供者的要求（如要求提供姓名、地址、联系方式、注册机构等）、对网上商品和服务的描述（如注明价格、是否包括增值税和运输费等）、网上发布广告的要求等内容、在线合同订立的原则、在线争端解决以及网上订单取消等内容。

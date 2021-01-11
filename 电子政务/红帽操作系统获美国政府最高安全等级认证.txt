@@ -1,0 +1,8 @@
+红帽操作系统获美国政府最高安全等级认证
+据国外媒体报道，在IBM服务器上执行的红帽操作系统─Red Hat Enterprise Linux 5的存取控制能力在5月7日取得了美国政府信息安全认证机构所颁发的最高安全等级认证，这意味着那些对信息安全要求较为严格的政府单位将可采用红帽的Linux操作系统。
+此一评鉴是由IBM提出，评估的是在IBM System x、System p、System z及BladeCenter服务器上执行的Red Hat Enterprise Linux 5操作系统。
+此次红帽操作系统在三项存取控制部分取得了最高的评估担保等级，包括「卷标式安全保护设定文件」（Labeled Security Protection Profile，LSPP）、「可控制存取保护设定档」（Controlled Access Protection Profile，CAPP）及「以角色为基础的存取控制保护设定档」（Role-Based Access Control Protection Profile，RBAC）。
+这并不是Linux操作系统首次取得EAL 4认证，之前红帽其它操作系统版本及Novell的Suse Linux也都曾取得EAL 4认证，但这却是Linux操作系统首次在存取控制能力上取得该认证。
+红帽所取得的是国家安全局旗下的国际信息担保组织（National Information Assurance Partnership，NIAP）所颁发的第四级「评估担保等级」（Evaluation Assurance Level 4；EAL 4），NIAP专门评估商业技术产品的安全性，这也是该组织信息安全等级中最高的一级。
+一般企业并不会要求此一等级的安全认证，但是有些对信息管控较严格的政府单位则会要求较高的安全等级，例如国防部或国安局等。此外，过去操作系统开发商会要求企业额外购买取得LSPP及RBAC认证的部份，但现在一套操作系统就能支持不同等级的安全性。
+InfoWorld引用IBM开放系统副总裁Dan Frye指出，对Linux产业而言这是一个大消息，因为这显示出开放原始码软件可被用在机密运算任务中，证明那些认为开放原始码操作系统不能这样做的人是错的。

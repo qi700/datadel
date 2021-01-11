@@ -1,0 +1,4 @@
+小心病毒盗走QQ密码
+昨天，市公安局网监支队发布了下周计算机病毒预报，有两个病毒会流行，网警提醒网民要小心QQ被盗走密码。
+据介绍，这两个病毒特别值得注意，它们是：“QQ通行证变种QBG（Trojan.PSW.QQPass.qbg）”和“IRC波特变种DQO（Backdoor.IRCBot.dqo）”病毒。“QQ通行证变种QBG”会伪造一个QQ密码保护修改资料的网页，骗取用户的QQ密码再发送出去。“IRC波特变种DQO ”是基于IRC的后门程序，黑客可以通过IRC软件控制中毒电脑，对外发动攻击等。
+如遇病毒侵害，可登录青岛公安报警网站http://qingdao.cyberpolice.cn/报警。

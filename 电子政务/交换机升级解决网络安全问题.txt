@@ -1,0 +1,46 @@
+交换机升级解决网络安全问题
+为加强网络安全管理，上级业务部门要求对连接外部路由的交换机采取强化措施，一是交换机CONSOLE口、VTY(虚拟终端)设置用户及口令;
+二是冗余端口关闭;
+三是IP、MAC、PORT三者绑定，阻止陌生主机接入。
+单位连接外部路由的是Quidway S3026E交换机。上网查阅相关资料，动手开始配置S3026E交换机。根据所查资料，shutdown命令关闭端口，arp命令实现IP、MAC、PORT三者绑定。配置中发现，shutdown命令可以关闭端口，但保存配置重启交换机后，端口依然能连通终端微机，查询此端口状态，却显示“administratively down”。无奈下，将相关信息发给华为寻求技术支持，回复可能硬件故障，需要现场解决。汇报上级业务部门，同意由地方技术公司协助解决此事。
+地方技术人员过来配置了CONSOLE、VTY(虚拟终端)用户及口令，但IP、MAC、PORT三者绑定及关闭冗余端口无法实现。只是与本人配置策略不同，地方技术人员使用更为复杂的访问控制表来实现三者绑定。配置关闭冗余端口时，情况与我如出一辙，重启后依然能连接终端微机。最后，地方技术人员只好摇头离开。
+在我看来，从节约成本出发，尽可能利用现有设备，更换交换机不是最佳解决方案。地方技术人员虽然没能解决问题，但最后一句话提醒了我。当时，地方技术人员曾解释交换机软件版本较低，CLI还是仿CISCO的。那么能不能升级解决呢？地方技术人员答复交换机较早，华为已不支持此软件升级，且升级包已无法下载了。
+上网查S3026E升级软件，最终在www.h3c.com找到了它的身影，由于不是华为员工，无法得到下载权限，只好通知地方技术人员代为下载发送给自己。
+交换机S3026E软件版本为VRP Version 3.10 RELEASE 0002, Bootrom Version is 119，确实太低了。还好，地方技术人员已经把升级软件发过来了。其中包括Bootrom_V130、Bootrom_V160,还有VRP3.10-R0035。
+收到升级软件，一阵狂喜，阅读相关说明后。立即着手对交换机进行软件升级。按要求架好TFTP服务器，配好交换机管理IP地址。注意：TFTP服务器要设置在一个网段内。重启交换机，按Ctrl+B组合键，出现选择菜单后Ctrl+u，进入加载BOOTROM的菜单，选择“Set TFTP protocol parameter”。其过程如下：
+Update Bootrom
+1. Set TFTP protocol parameter
+2. Set FTP protocol parameter
+3. Set XMODEM protocol parameter
+0. Return to boot menu
+Enter your choice(0-3): 1
+Load file name :s3026e-130.btm
+Switch IP address :192.168.3.2
+Server IP address :192.168.3.80
+Subnet mask :255.255.255.0
+Are you sure to download file to flash? (Y/N) y
+ARP broadcast 1
+TFTP from server 192.168.3.80; our IP address is 192.168.3.2
+Filename 's3026e-130.btm'.
+Load address: 0x80800000
+Loading: ######################
+done
+download time: 920769us
+Bytes transferred = 349336 (55498 hex)
+Erasing Bootrom....x.x.x.x.x.x--done
+Writing to Bootrom...+++++++++++++++++++++done
+Update bootrom successful!
+重启交换机，show version，Bootrom版本已变为130。依此法将交换机Bootrom版本升级到160。
+升级VRP版本时，把原版本VRP备份，一方面因为为交换机FLASH空间不足，需要删除原文件以腾出足够的空间;另一方面，如升级失败可以恢复回来。升级VRP时情况如下:
+Quidway#dele /u s3026e-vrp3.10-0002.bin
+Quidway(config)#tftp get //192.168.3.80/s3026e-r0035.bin
+..................................................
+..................................................
+Downloading succeeds!
+Quidway#boot bootldr s3026e-r0035.bin
+重启交换机，disp version, VRP版本已变为“VRP Software, Version 3.10, RELEASE 0035”。
+交换机升级完成，下一步对交换机进行配置。配置CONSOLE、VTY(虚拟终端)用户及口令，首先要创建用户并设定用户口令及服务类型，然后分别进入CONSOLE、VTY接口视图，设置认证方式。
+在此版本下，服务类型有四种：FTP，设置FTP用户;LAN-ACCESS,设置ETHERNET通过RJ45上网用户;TELNET，过程登录用户;
+SSH，安全Shell用户。CONSOLE、VTY认证登录有三种方式：NO，登录时不需要口令;PASSWORD，登录需要口令;SCHEME,需要用户名及口令，用户必须是SSH用户或TELNET用户，也就是说TELNET(SSH)与CONSOLE用户及口令是一样的，这或许是它的不足之处。
+配置IP、MAC、PORT，借助AM user-bind命令，轻松搞定。记住，要先使能AM，默认情况下AM功能是关闭的。
+关闭冗余端口，依然在各冗余端口视图下Shutdown,保存配置，重启交换机，一切OK。

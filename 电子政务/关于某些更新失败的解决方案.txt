@@ -1,0 +1,45 @@
+关于某些更新失败的解决方案
+微软的补丁可真是多阿 三天两头就有一个，可是有些补丁打不上而且 更新——重启——失败——再更新——重启以上循环那我们怎么解决这个问题呢？
+解决方法:
+1． “开始”->  “运行”->键入“proxycfg –d”后按回车
+此时确认问题是否被解决，如无解决执行以下操作（双击安装程序）
+2．点击“开始”-〉点击“运行”-〉输入“net stop wuauserv”后回车。
+重命名%systemroot%（即系统安装目录，默认为c:\windows）下的Softwaredistrbution文件夹为SDOLD
+点击“开始”-〉点击“运行”-〉输入“net start wuauserv”后回车。
+此时再次确认问题是否被解决，如无解决执行以下操作
+3
+1. 点击开始，点击运行，输入notepad C:\register.bat按确认. 选择是的.
+2. 请拷贝以下内容到register.bat这个记事本中
+regsvr32 /s urlmon.dll
+regsvr32 /s Shdocvw.dll
+regsvr32 /s Msjava.dll
+regsvr32 /s Actxprxy.dll
+regsvr32 /s Oleaut32.dll
+regsvr32 /s Mshtml.dll
+regsvr32 /s Browseui.dll
+regsvr32 /s Shell32.dll
+regsvr32 /s jscript.dll
+regsvr32 /s msxml.dll
+regsvr32 /s msxml2.dll
+regsvr32 /s msxml3.dll
+regsvr32 /s wuapi.dll
+regsvr32 /s wuaueng.dll
+regsvr32 /s wuaueng1.dll
+regsvr32 /s wuauserv.dll
+regsvr32 /s wucltui.dll
+regsvr32 /s wups.dll
+regsvr32 /s wuweb.dll
+regsvr32 /s iuengine.dll
+regsvr32 /s softpub.dll
+regsvr32 /s initpki.dll
+regsvr32 /s mssip32.dll
+ttrib -h -s -r %windir%\system32\catroot2
+attrib -h -s -r %windir%\system32\catroot2\*.*
+3. 拷贝完毕后，请关闭这个记事本。选择是的保存这个文件。
+4. 点击开始，点击运行，输入C:\register.bat 运行这个文件.
+此时确认问题是否被解决，如无解决执行以下操作
+4．点击“开始”-〉点击“运行”-〉输入“net stop cryptsvc”后回车。
+重命名%systemroot%\system32下的Catroot2文件夹为oldcatroot2
+点击“开始”-〉点击“运行”-〉输入“net start cryptsvc”后回车。
+此时确认问题是否被解决，如无解决执行以下操作
+5．暂时卸载电脑中已安装的防火墙程序（并不是关闭程序，关闭程序可能并不能关闭其服务）

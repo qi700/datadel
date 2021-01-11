@@ -1,0 +1,41 @@
+警惕七大黑客常用网络软件
+黑客最早源自英文hacker，早期在美国的电脑界是带有褒义的。但其含义演绎至今，黑客一词已被用于泛指那些专门利用电脑网络搞破坏或恶作剧的家伙。而现如今的网络上，黑客网站已是比比皆是，且其软件也越来越多、越来越黑。今天，IDC评述网据资料显示，向大家介绍7款黑客常用软件应对策略，以防范网络安全。
+1 端口猎手PortHunter
+平台：Windows 95/Windows 98
+原理：该软件占用大量的Socks进行端口搜索，降低局域网传输的效率，危害网络安全。利用系统管理人员的疏忽，盗用SMTP端口发E-mail（：119）、盗用没有密码的代理端口（：8080）、盗用内部使用的FTP端口（：25）。
+表现：局域网变慢，浏览器上不了网，BBS掉线。
+策略：对于Novell网为框架的局域网，我们可以限制指定程序的运行，如：ProxyHunter、Xhunter、SocksHunter、PortScanner、PortHunter。对于其它框架的局域网的用户，也可以在服务器中设定禁止一些黑客程序的运行。
+2 小偷ProxyThief
+平台：Windows 95/Windows 98/Windows NT
+原理：通过将你的计算机设置成代理服务器，设局让你缴纳网费，用你的IP连入Internet干坏事，结果你成了“替罪羊”。前提是，黑客必须直接在你的机器上执行ProxyThief，或通过NetSpy或BO 2000远程执行它。ProxyThief的安装是在后台进行的，你丝毫觉察不到。
+表现：偶尔机器上网速度变慢。空机不执行任何程序，硬盘也会无故狂转;用NetInspect v1.0（网络监视）对机器从0到9999端口进行扫描，会找出Free Proxy！端口，一般经验不足的黑客不会修改其缺省值8080。如果你的机器不是网关或代理，那你的端口已经被黑客盗用。
+策略：对策：启动REGEDIT.EXE，查找关键字“ProxyThief”，将所有与之相关的键和键值删除。
+3 古老的WinNuke
+平台：Windows 95（包括OSR2版）
+原理：利用Windows 95系统的漏洞，通过TCP/IP协议向远程机器发送一段信息，导致一个OOB错误，使之崩溃。
+表现：电脑屏幕上出现一个蓝底白字的提示：“系统出现异常错误”，按ESC键后又回到原来的状态，或者死机。
+策略：用写字板或其它的编辑软件建立一个文本文件，文件名为OOBFIX.REG，内容如下：
+REGEDIT4
+［HKEY_LOCAL_MACHINESystemCurrentControlSet ServicesVxDMSTCP］
+″BSDUrgent″=″0″
+启动资源管理器，双击该文件即可。
+4 超级黑客BO 2000
+平台：Windows 95/Windows 98/Windows 2000
+原理：BO 2000（Back Orifice）是功能最全的TCP/IP构架的黑客工具。它除了具有NetSpy 2.0的全部功能外，还支持修改客户端的电脑的注册表。支持多媒体操作。数据采用加密形式的UDP包，原理与NetSpy v2.0大同小异（实际上NetSpy是BO 2000的一个汉化后的用Visual C++重新编译的简装版）。
+表现：一切都是在“无声中”进行。硬盘总是奇怪地在响。
+策略：到注册表中，删除［HKEY_LOCAL_MACHINESoftwareMicrosoftWindowsCurrentVersionRunService或Run］中的BOGUI.EXE和BOClient键值。
+5 寄生虫ExeBind
+平台：Windows 3.x/Windows 95/Windows 98/Windows NT/Windows 2000
+原理：该小程序将指定的黑客程序捆绑到任何一个广为传播的热门软件上，使宿主程序执行时，寄生程序（黑客程序）也在后台被执行。而且支持多重捆绑。实际上是通过多次分割文件，多次从父进程中调用子进程来实现的。
+表现：几乎无
+策略：用HackerScan v0.69进行扫描，查出被捆程序，并删除。
+6 键盘幽灵KeyboardGhost
+平台：Windows 95/Windows 98/Windows NT/Windows 2000
+原理：Windows系统是一个以消息循环（Message Loop）为基础的操作系统。系统的核心区保留了一定的字节作为键盘输入的缓冲区，其数据结构形式是队列。键盘幽灵正是通过直接访问这一队列，使键盘上输入的Password（显示在屏幕上的是星号）得以记录。
+表现：在系统根目录下生成一文件名为KG.DAT的隐含文件。
+策略：在注册表中将［HKEY_LOCAL_MACHINESoftwareMicrosoftWindowsCurrentVersionRunService］→KG.EXE这一键值删除，并将文件KG.EXE从WindowsSystem目录下删除。还有C:KG.DAT文件也要删除。
+7 网络精灵NetSpy
+平台：Windows 95/Windows 98/Windows NT/Windows 2000
+原理：NetSpy是一个基于TCP/IP的简单文件传送软件，实际上你可以将它看作一个没有权限控制的增强型FTP服务器。通过它，黑客可以神不知鬼不觉地下传和上载目标机器上的任意文件，并可以执行一些特殊的操作。
+表现：屏幕上奇怪地出现一个标题为“信使服务”的对话框，其内容是黑客在其监控端上指定的;正常执行的程序（游戏、Internet浏览器、NetTerm、AutoCAD、WORD等等）“在无声中”关闭;突然关机了;机器异常执行了一些程序;按Ctrl+Alt+Del键，在出现的任务栏中会清楚地看到NetSpy这个进程。
+策略：到注册表中，删除［HKEY_LOCAL_MACHINESoftwareMicrosoftWindowsCurrentVersionRunService或Run］中的NetSpy.EXE的键值。

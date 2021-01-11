@@ -1,0 +1,25 @@
+Apache WEB服务器解决方案
+Turbolinux 上有世界排名第一的Web 服务器----Apache 服务(http://www.apache.org)。 根据著名的Web 服务器调查公司具Netcraft(http://www.netcraft.com)所作的调查，世界上百分之六十以上的Web 服务器都在使用Apache产品，象Yahoo, Altavista, GeoCities, Hotmail,新浪,网易等著名www站点。它几乎可以运行在所有广泛使用的计算机平台上。
+Apache 的主要特征
+● 支持HTTP/1.1 协议    Apache是最先使用HTTP/1.1协议的Web服务器之一，它完全兼容HTTP/1.1协议，并与HTTP/1.0 协议向后兼容。Apache 已为新协议所提供的全部内容做好了必要的准备。
+● 简单而强有力的基于文件的配置    Apache 服务器没有为管理员提供图形用户界面。它提供了三个简单的文本配置程序，可以根据需要用它们来配置。
+● 支持通用网关接口(CGI)    Apache 用mod_cgi 模块来支持CGI 。它遵守CGI/1.1 标准，并且提供了扩充的特征，如定制环境变量和很难在其他Web 服务器中找到的调试支持功能。
+● 支持HTTP 认证    Apache 支持基于Web 的基本认证。它还为支持基于消息摘要的认证做好了准备，Apache 通过使用标准的口令文件、DBM、SQL、调用或对外部认证程序的调用来实现基本的认证。
+● 集成的Perl    Perl 已成为CGI 脚本编程的事实标准。Apache 肯定是使Perl 成为这样流行的CGI 编程语言的因素之一。现在，Apache 比以往任何时候都更加支持Perl。 通过使用它的mod_perl 模块，你可以将基于Perl 的CGI 脚本装入内存，并可以根据需要多次重复使用该脚本。这消除了经常与解释性语言联系在一起的启动开销。
+● 集成的代理Proxy 服务器    Apache 可作为前向代理服务器，也可作为后向代理服务器。
+● 服务器状态和可定制日志    Apache 在记录日志和监视服务器本身状态方面向你提供了很大的灵活性，可以通过Web 浏览器来监视服务器的状态，也可根据自己的需要来定制日志。
+● 允许根据客户主机名或IP 地址限制访问
+● 支持CGI 脚本,如:perl, php3 等
+● 支持用户WEB 目录    Apache 允许主机上的用户使用特定的目录存放用户自己的主页，可以通过如下URL 地址来访问，如用户zhang。 http://hostname/~zhang
+● 支持虚拟主机    即通过在一个机器上使用不同的主机名来提供多个HTTP 服务，Apache 支持包括：基于IP, 基于名字和基于Port 三种类型的虚拟主机服务。
+● 支持动态共享对象    Apache 的模块可在运行时动态加载，这意味着这些模块可以被装入服务器进程空间,从而减少系统的内存开销。
+● 支持服务器端包含命令SSI    Apache 提供扩展的服务器端包含命令，该项功能为Web 站点开发人员提供了更大的灵活性。
+● 支持安全Socket 层(SSL)
+● 用户会话过程的跟踪能力    通过使用HTTP cookies，一个称为mod_usertrack 的Apache 模块可以在用户浏览Apache Web 站点时对用户进行跟踪。
+● 支持FastCGI    Apache 使用mod_fcgi 模块来实现FastCGI 环境，并使FastCGI 应用程序运行得更快。
+● 支持Java  Servlets    Apache 的mod_jserv 模块支持Java Servlets，该项功能可使Apache 运行服务器端的Java 应用程序。
+● 当负载增加时,服务器会快速生成子进程来处理,从而提高系统响应能力
+Apache 的体系结构
+正式的Apache 服务器由Apache 内核代码和在缺省配置下被编译到服务器软件中的标准模块组成。如果需要删除这些标准模块中的一个，可以通过编辑配置文件，并使用极好的配置脚本重新配置Apache 来轻松做到这一点。这一过程非常简单，只需从配置文件中删除相应的行即可。一旦重新编译了Apache 服务器，该模块就不在可执行文件中了。
+例如，如果在服务器中不需要CGI脚本支持，就可将Apache发行版的source子目录下的配置文件中的行Addmodule modules/standard/mod_cgi.oApache还提供应用程序接口（API），它允许开发人员建立用于插入Apache服务器的各种模块，以添加新的功能。这样你可以建立适合自己需要的Apache服务器。
+在Apache 中能够添加和删除模块的优点是非常伟大的。它表示可以编译适合自己站点特殊需要Apache 服务器，模块开发人员还可以享受巨大的灵活性。他们可以利用Apache提供的API来开发自己的模块，根本不必考虑Apache的内核。因为添加一个新模块并不表示将补丁加到Apache 内核的源代码中，它使开发人员的工作变得容易。

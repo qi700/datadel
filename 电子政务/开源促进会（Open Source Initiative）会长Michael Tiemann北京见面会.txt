@@ -1,0 +1,11 @@
+开源促进会（Open Source Initiative）会长Michael Tiemann北京见面会
+开始时间：2007-10-11
+结束时间：2007-10-11
+城市：北京
+地点：北京怡清泉茶艺馆（北京海淀区德外大街 马甸桥东南角）
+简介：
+开源促进会（Open Source Initiative）会长Michael Tiemann是开源软件真正的开路先锋。早在十几年前就利用GNU C++编写出本地源代码C++编译器和调试器，对于开源做出了重大贡献。并且在1989年就凭借自身卓越的技术和企业家的热情创造了全世界第一家位开源软件公司提供商业支持的公司 - Cygnus Solotions公司，最终公司在Michael的推动下成为了人人敬佩的开源领导者。与其同时Michael本人还是“开源促进会（Open Source Initiative）”和“GNOME基金会(GNOME Foundation)”等多个开源组织的理事会成员，常年致力于开源的各种工作。
+电话：无
+联系人：无
+Email：
+网址：http://china.adv-m.com/redhat/michael/reg.htm

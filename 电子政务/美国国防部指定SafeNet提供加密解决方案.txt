@@ -1,0 +1,8 @@
+美国国防部指定SafeNet提供加密解决方案
+SafeNet宣布美国国防部(DoD)和美国联邦服务管理机构（GSA）根据美国政府企业级软件计划（ESI）的SmartBUY项目，联合选定SafeNet公司为所有联邦政府机构、相应的州政府和地方政府的磁盘和文件加密解决方案的领先供应商。ESI SmartBUY项目旨在优化联邦政府的采购流程，实现企业级软件的顺利部署和节省成本。
+SafeNet 首席运营官Chris Fedde说：“SafeNet ProtectDrive对于SmartBUY项目来讲，是一个面向政府机构的简单和低成本解决方案，能够保护敏感和关键任务的数据。此次，把SafeNet选定为政府机构加密解决方案的优先级供应商，是因为SafeNet的加密方案能够满足美国管理暨预算局（OMB）的政策要求和联邦信息安全管理的要求，能够确保政府的信誉。
+ProtectDrive作为一个全盘数据保护的解决方案，是SafeNet静态数据保护解决方案的一部分。它能够保护笔记本电脑、工作站和服务器以及USB驱动设备上的敏感数据，防止数据被盗取或偶然丢失所造成的损失。SmartBUY 项目下提供的SafeNet ProtectDrive具有很多独特的优势，包括符合FIPS 140-2标准的文件加密产品ProtectPack和BSEC PK智能卡中间件。
+ProtectDrive的设计宗旨除了提供最低总体拥有成本之外，其它的优势在于：
+·政府安全认证 – ProtectDrive满足了最苛刻的政府安全标准。ProtectDrive利用SafeNet的FIPS 140-2二级认证加密库加密数据。    ProtectDrive获得了通用标准(CC)EAL2认证。除此之外，ProtectDrive还曾被美国军方推荐给美国国防部。
+·管理简单 – ProtectDrive允许管理员通过微软动态目录集中管理硬盘加密。这种管理大大减少了部署和管理硬盘加密的时间和成本。与市场上的其它解决方案不同， 在安装更新的时候，ProtectDrive不要求解密硬盘。然而，即使在最初加密过程中关闭电源的情况下，ProtectDrive也能够进行无缝加密部署。
+·强双因素认证 – 对于不断增强的安全性，ProtectDrive能够轻松地与强双因素认证进行集成，包括令牌、智能卡或国防部的通用访问卡。

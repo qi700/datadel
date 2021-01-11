@@ -1,0 +1,41 @@
+黑客施行域名劫持攻击
+域名劫持攻击技术：攻击者通过冒充原域名拥有者以E-MAIL方式修改网络解决方案公司的注册域名记录，将域名转让到另一团体，通过在修改后注册信息所指定的DNS服务器加进该域名记录，让原域名指向另一IP的服务器，通常那两台服务器都是攻击者预先入侵控制的服务器，并不归攻击者所拥有。
+那攻击者到底是怎样实施该域名劫持攻击的呢？
+1 获得要劫持的域名注册信息
+攻击者会先访问网络解决方案公司www。networksolutions。com，通过该公司主页面所提供MAKE CHANGES功能，输入要查询的域名，获得该域名注册信息以abc。com为例，我们将获得以下信息:
+Registrant:
+Capital Cities/ABC，Inc (ABC10-DOM)
+77 W 66th St。
+New York， NY 10023
+US
+Domain Name: ABC。COM
+Administrative Contact， Billing Contact:
+King， Thomas C。 (SC3123-ORG) abc。legal。internet。registration@ABC。COM
+ABC， Inc。
+77 W 66th St。
+New York， NY 10023
+US
+212-456-7012
+Technical Contact， Zone Contact:
+Domain Administrator (DA4894-ORG) dns-admin@STARWAVE。COM
+Starwave Corporation
+13810 SE Eastgate Way， ste。 400
+Bellevue， WA 98005
+US
+206。664。4800
+Fax- 206。664。4829
+Record last updated on 11-Oct-2000。
+Record expires on 23-May-2003。
+Record created on 22-May-1996。
+Database last updated on 20-Oct-2000 14:14:26 EDT。
+Domain servers in listed order:
+DNS1。STARWAVE。COM 204。202。132。51
+T。NS。VERIO。NET 192。67。14。16
+2 控制该管理域名的E-MAIL账号
+从上面获得的信息，攻击者可了解到abc。com的注册DNS服务器，管理域名的E-MAIL账号，技术联系E-MAIL账号等等注册资料，攻击者的重点就是先需要把该管理域名的E-MAIL账号abc。legal。internet。registration@ABC。COM控制，进行收发在网络解决方案公司networksolutions主页所修改域名注册记录后的确认E-MAIL，对该E-MAIL账号的控制过程不排除攻击者对该E-MAIL账号进行密码暴力猜测，对该账号所在E-MAIL服务器进行入侵攻击。
+3 修改该域名在网络解决方案公司的注册信息
+到这个时候，攻击者会使用网络解决方案公司networksolutions的MAKE CHANGES功能修改该域名的注册信息，包括拥有者信息，DNS服务器信息，等等。
+4 冒充拥有者使用管理域名的E-MAIL账号收发网络解决方案公司确认函
+攻击者会在该管理域名E-MAIL账号的真正拥有者收到网络解决方案公司确认函之前，把该E-MAIL账号的信件接收，使用该E-MAIL账号回复网络解决方案公司进行确认，进行二次回复确认后，将收到网络解决方案公司发来的成功修改注册记录函，攻击者成功劫持域名
+5 在新指定的DNS服务器加进该域名记录
+在注册信息新指定DNS服务器里加进该域名的PTR记录，指向另一IP的服务器，通常那两台服务器都是攻击者预先入侵控制的服务器，并不归攻击者所拥有。

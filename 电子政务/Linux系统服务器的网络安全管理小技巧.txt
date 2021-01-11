@@ -1,0 +1,26 @@
+Linux系统服务器的网络安全管理小技巧
+如果你的Linux服务器被非受权用户接触到(如服务器放在公用机房内、公用办公室内)，那么它的安全就会存在严重的隐患。
+使用单用户模式进入系统
+Linux启动后出现boot:提示时，使用一个特殊的命令，如 linuxsingle或linux 1，就能进入单用户模式(Single-User mode)。这个命令非常有用，比如忘记超级用户(root)密码。重启系统，在boot:提示下输入linux single(或linux 1)，以超级用户进入系统后，编辑Passwd文件，去掉root一行中的x即可。
+防范对策：
+以超级用户(root)进入系统，编辑/etc/inittab文件，改变id：3：initdefault的设置，在其中额外加入一行(如下)，让系统重新启动进入单用户模式的时候，提示输入超级用户密码：
+~~:S:walt:/sbin/sulogin
+然后执行命令：/sbin/init q，使这一设置起效。
+在系统启动时向核心传递危险参数
+在Linux下最常用的引导装载(boot loader)工具是LILO，它负责管理启动系统(可以加入别的分区及操作系统)。但是一些非法用户可能随便启动Linux或者在系统启动时向核心传递危险参数，这也是相当危险的。
+防范对策：
+编辑文件/etc/lilo.conf，在其中加入restricted参数，这一参数必须同下面一个要讲的password参数一起使用，表明在boot：提示下，传递给Linux内核一些参数时，需要你输入密码。
+password参数可以同restricted一起使用，也可以单独使用，下面将分别说明。
+同restricted一起使用：只有在启动时需要传递给内核参数时，才会要求输入密码，而在正常(缺省)模式下，是不需要密码的，这一点一定要注意。
+单独使用(没有同restricted一起使用)：表示不管用什么启动模式，Linux总会要求输入密码;如果没有密码，就没有办法启动Linux，在这种情况下的安全程度更高，相当于外围又加入一层防御措施。当然也有坏处 ——你不能远程重启系统，除非你加上restricted参数。
+由于密码是明文没有加密，所以/etc/lilo.conf文件一定要设置成只有超级用户可读，可使用下面的命令进行设置：
+chmod 600 /ietc/lilo.conf
+然后执行命令：/sbin/lilo -V，将其写入boot sector，并使这一改动生效。
+为了加强/etc/liIo.conf文件的安全，你还可以设置这个文件为不可改变的属性，可使用命令：
+chattr 十i/etc/lilo.conf
+如果日后你要修改/etc/liIo.conf文件，用chattr -i/etc/lilo.conf命令去掉这个属性即可。
+使用“Ctrl+Alt+Del”组合键重新启动
+对于这一点，非常重要，也非常容易忽略，如果非法用户能接触到服务器的键盘，他就可以用组合键“Ctrl+AIt+Del”使你的服务器重启。
+防范对策：
+编辑/etc/inittab文件，给ca：：ctrlaltdel：/sbin/shutdown-t3 -r now加上注释###ca：：ctrlaltdeI：/sbin/shutdown-t3 -r now。
+然后执行命令：/sbin/init q，使这一改动生效。

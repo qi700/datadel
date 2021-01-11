@@ -1,0 +1,166 @@
+杀毒软件实时杀毒的奥秘(vxd文件监控)
+市面上所有号称“虚拟机”，“防火墙”的实时监控杀毒软件无一不是使用的IFSHOOK技术。但是同时也有一些朋友不断写MAIL给我打听如何实现读写的监控。下面给出用VTOOLSD写的代码，也就是所有实时杀毒软件的奥秘。同时，很多拦截文件操作的软件，例如对目录加密，文件加密等，也采用了雷同的技术。
+由于代码十分简单，不分析了。
+CODE:
+//================================================
+//
+//By Lu Lin 2000.5.10
+// Apply with VtoolsD 3.01
+// DDK version is available if requested.
+//Abstract:
+// Install a IFS hook, monitoring any read and write access
+//
+//================================================
+// IFSHOOK.c - main module for IFSHOOK
+#define　 DEVICE_MAIN
+#include　"ifshook.h"
+#undef　　DEVICE_MAIN
+//typedef EventHdl(pevent pev,pioreq pir);
+typedef struct _Monitored_Files{
+struct _Monitored_Files *pNext_Monitored_Files;//pointer to next struct
+struct _Monitored_Files *pPre_Monitored_Files;//pointer to previous struct
+int sfn;//system file number
+int open_count;
+char path[260]; //ansi path name
+}_Monitored_Files,*pMonitored_Files;
+//
+//Declare virtual device
+//
+Declare_Virtual_Device(IFSHOOK)
+_Monitored_Files Monitored_Files;
+ppIFSFileHookFunc PrevHook;
+DefineControlHandler(SYS_VM_INIT, OnSysVMInit);
+DefineControlHandler(SYS_DYNAMIC_DEVICE_INIT, OnSysDynamicDeviceInit);
+DefineControlHandler(SYS_DYNAMIC_DEVICE_EXIT, OnSysDynamicDeviceExit);
+DefineControlHandler(SYS_VM_TERMINATE, OnSysVMTerminate);
+PCHAR ConvertPath( int drive, path_t ppath, PCHAR fullpathname )
+{
+int　i = 0;
+_QWORD　result;
+//
+// Stick on the drive letter if we know it.
+//
+if( drive != 0xFF ) {
+fullpathname[0] = drive+"A"-1;
+fullpathname[1] = ":";
+i = 2;
+}
+UniToBCSPath( &fullpathname, ppath->pp_elements, 260 , BCS_WANSI, &result );
+return( fullpathname );
+}
+pMonitored_Files IsFileOpened(int i){
+pMonitored_Files p=&Monitored_Files;
+while (p){
+if (i==p->sfn){
+return p;
+}
+p=p->pNext_Monitored_Files;
+}
+return 0;
+}
+BOOL ControlDispatcher(
+DWORD dwControlMessage,
+DWORD EBX,
+DWORD EDX,
+DWORD ESI,
+DWORD EDI,
+DWORD ECX)
+{
+START_CONTROL_DISPATCH
+ON_SYS_VM_INIT(OnSysVMInit);
+ON_SYS_DYNAMIC_DEVICE_INIT(OnSysDynamicDeviceInit);
+ON_SYS_DYNAMIC_DEVICE_EXIT(OnSysDynamicDeviceExit);
+END_CONTROL_DISPATCH
+return TRUE;
+}
+int _cdecl MyIfsHook(pIFSFunc pfn, int fn, int Drive, int ResType,
+int CodePage, pioreq pir)
+{
+int retvar,i;
+char fullpathname[260];
+_Monitored_Files *FileEntry;
+switch(fn){
+case IFSFN_OPEN:{
+retvar=(*PrevHook)(pfn, fn, Drive, ResType, CodePage, pir);
+ConvertPath( Drive, pir->ir_ppath, fullpathname );
+FileEntry=IsFileOpened(pir->ir_sfn);
+if (FileEntry){
+FileEntry->open_count++;
+}else{
+FileEntry=&Monitored_Files;
+while(1){
+if (FileEntry->pNext_Monitored_Files){
+FileEntry=FileEntry->pNext_Monitored_Files;
+}
+else{
+break;
+}
+}
+FileEntry->pNext_Mon_itored_Files=
+HeapAllocate( sizeof(_Monitored_Files),HEAPZEROINIT);
+FileEntry->pNext_Monitored_Files->pPre_Mon_itored_Files=FileEntry;
+FileEntry=FileEntry->pNext_Monitored_Files;
+FileEntry->sfn=pir->ir_sfn;
+FileEntry->open_count=1;
+memcpy(FileEntry->path,fullpathname,260);
+}
+return retvar;
+}
+case IFSFN_READ:{
+//Do something here,
+//eg. Decrypt the file.
+char *str;
+int j;
+str=pir->ir_data;
+j=pir->ir_length;
+retvar=(*PrevHook)(pfn, fn, Drive, ResType, CodePage, pir);
+FileEntry=IsFileOpened(pir->ir_sfn);
+if (!stricmp("c:\test.txt",FileEntry->path)){
+for (i=0;iir_sfn);
+if (FileEntry){
+if (!stricmp("c:\test.txt",FileEntry->path)){
+for (i=0;iir_length;i++){
+(((char*)pir->ir_data))++;
+}
+}
+}
+return (*PrevHook)(pfn, fn, Drive, ResType, CodePage, pir);
+}
+case IFSFN_CLOSE:{
+FileEntry=IsFileOpened(pir->ir_sfn);
+if (FileEntry){
+FileEntry->open_count--;
+if (!FileEntry->open_count){
+FileEntry->pPre_Monitored_Files->pNext_Mon_itored_Files=
+FileEntry->pNext_Monitored_Files;
+FileEntry->pNext_Monitored_Files->pPre_Mon_itored_Files=
+FileEntry->pPre_Monitored_Files;
+HeapFree(FileEntry,0);
+}
+}
+return (*PrevHook)(pfn, fn, Drive, ResType, CodePage, pir);
+}
+}
+return (*PrevHook)(pfn, fn, Drive, ResType, CodePage, pir);
+}
+BOOL OnSysVMInit(VMHANDLE hVM){
+return OnSysDynamicDeviceInit();
+}
+BOOL OnSysDynamicDeviceInit()
+{
+PrevHook = IFSMgr_InstallFileSystemApiHook(MyIfsHook);
+Monitored_Files.pNext_Mon_itored_Files=0;
+Monitored_Files.pPre_Mon_itored_Files=0;
+Monitored_Files.sfn=-1;
+Monitored_Files.open_count=0;
+Monitored_Files.path[0]=0;
+return TRUE;
+}
+BOOL OnSysDynamicDeviceExit()
+{
+IFSMgr_RemoveFileSystemApiHook(MyIfsHook);
+return TRUE;
+}
+void OnSysVMTerminate(VMHANDLE hVM){
+return OnSysDynamicDeviceExit();
+}

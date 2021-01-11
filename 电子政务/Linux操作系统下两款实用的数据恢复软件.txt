@@ -1,0 +1,12 @@
+Linux操作系统下两款实用的数据恢复软件
+介绍两个数据恢复软件：TestDisk 和 PhotoRec。其中，TestDisk 主要用来恢复损坏的分区以及拯救无法引导的磁盘；而 PhotoRec 则主要用于恢复损坏的数据文件，包括文档、图片、视频等。
+TestDisk 及 PhotoRec 皆支持在 Windows、Linux、Unix、Mac OS 等系统上执行。TestDisk 还支持包括 FAT、NTFS、Ext2、Ext3、ReiserFS、RAID 等在内的广泛的文件系统。而 PhotoRec 也能够在硬盘、光盘、优盘等各种存贮介质上工作。　　虽然数据恢复软件可以尽最大可能帮助我们挽回损失，但我们还是应该养成时常备份的习惯。只有真正做到有备无患，才能确保万无一失。　　由于错误的使用分区工具而带来的分区丢失，硬盘磁盘分区遭到损坏的情况下，使用叫做「TestDisk」的工具可以复原已损坏的分区。下面就介绍一下如何使用TestDisk急性恢复（注）。　　注：可以使用TestDisk进行复原的场合，也就是硬盘HDD上的分区（该分区有原有数据纪录）已经损坏的情形。但是如果损坏之后，重新再次做成了新分区的话，复原的可能性比较小，很困难。 　　TestDisk可以从http://www.cgsecurity.org/wiki/PhotoRec下在（注）。下载Fedora Core 6 对应的RPM包文件。例如、如果使用GNOME的分区管理软件「GParted」（Gnome Partition Editor）误删除了/dev/hda5分区。　　注：Linux下恢复误删除的文件 中介绍了使用「PhotoRec」对误删除的文件进行恢复。 　　注：TestDisk是恢复分区信息的软件、针对分区表被删除以及MBR（master boot record）被修改的恢复分区信息软件：TestDisk、使用前请先确认。 　　对于安装和配置请参照Linux下恢复误删除的文件。　　以root权限登陆，启动TestDisk。　　# testdisk 　　首先，选择恢复操作中的log文件（testdisk.log）的纪录方式。　　［Create］新建 　　［Append］追加 　　［No Log］不纪录
+选择log文件的记录方式
+选择了log文件的记录方式后、显示了处于连接状态的磁盘设备。然后选择要恢复的磁盘分区、选择［Proceed］。在这里选择装有Linux/Windows XP的硬盘HDD「Disk /dev/hda」。
+在列出的磁盘设备中，选择要恢复的分区，然后选择磁盘分区的种类。Linux/Windows就选［Intel］。
+下示画面中选择［Analyse］，对分区进行分析。
+显示了当前分区的状态。然后选择［Proceed］、显示分析結果。
+分区状态表示
+分区结构以绿色文字表示。和分析之前的画面相比、Linux的分区增加了一项，这个就是被误删除了的分区，选择之。　　按［P］键，该分区根部的文件和索引被表示出来，如果显示正确的画，分析结果就可以正确的推算。然后用这个方法，对其他的盘符进行操作。
+分区的分析结果 　　按［Enter］键，显示分析结果被反映到磁盘。并且被恢复。　　现在的状态，恢复的信息还没有被写到硬盘上，必须选择［Write］，才能真正的被写到磁盘上。写操作执行的确认信息显示的时候，按［Y］键确认之。
+写操作执行完毕，需要重新启动，按［Enter］键。　　最后退出［Quit］，TestDisk结束。系统重新启动。

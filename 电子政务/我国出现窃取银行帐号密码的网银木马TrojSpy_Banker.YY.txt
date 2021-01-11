@@ -1,0 +1,6 @@
+我国出现窃取银行帐号密码的网银木马TrojSpy_Banker.YY
+国家计算机病毒应及处理中心通过对互联网的监测发现一个恶意诱骗用户暴露银行个人银行帐号密码的网银木马TrojSpy_Banker.YY。该木马会监视IE浏览器正在访问的网页，如果发现用户正在登录工行个人银行，就会弹出伪造的登录对话框，诱骗用户输入登录密码和支付密码，通过邮件将窃取的信息发送出去。   病毒名称：TrojSpy_Banker.YY   病毒类型：木马程序    其它命名：Win32.Troj.Banker.ic.118018（金山）             TrojanSpy.Banker.yy（江民）             TSPY_BANCOS.BIR（趋势）      具体技术特征如下：   1、木马大小110KB～120KB左右，由VB语言编写。运行后会      在注册表启动项      HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\      CurrentVersion\Run下添加：     “svchost”= “%SystemDir%\svchost.exe”      这样每次系统启动，木马程序都会自动运行。    2、监视IE浏览器访问的页面，如果发现用户登录该行网上       银行个人银行页面就会弹出伪造的IE窗口（如图一所       示），诱骗用户输入登录密码和支付密码。                                                                  图一
+图二            图二为该行网上银行个人银行真实页面，请用户注意两页面的     对比，谨防受骗上当。        用户输入信息提交后，就会显示以下内容“为了给您提供更加     优良的电子银行服务，6月25日我行对电子银行系统进行了升级。     请您务必修改以上信息！”，诱骗用户再次输入登录密码和支付     密码。
+3、木马会将窃取到的信息通过邮件发送到指定邮件地址
+手工解决方法：       1、在注册表启动项中删除以下键值         HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\       CurrentVersion\Run下：       “svchost”=“%SystemDir%\svchost.exe”      2、搜索硬盘中svchost.exe文件，并删除。
+国家计算机病毒应急处理中心       计算机病毒防治产品检验中心       网    址：Http://www.antivirus-China.org.cn       电　　话：022-66211488/66211489/66211490        传　　真：022-66211487        电子邮件：security@tj.cnuninet.net

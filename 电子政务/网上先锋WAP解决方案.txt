@@ -1,0 +1,30 @@
+网上先锋WAP解决方案
+中联科技开发的NetFront网上先锋WAP是一套完整的、可移植的、适应于各种移动终端的WAP2.0软件解决方案。符合OMA的WAP2.0规范、中国移动WAP2.0终端测试规范、中国联通W
+AP2.0业务规范。 WAP主要包含WML浏览器、XHTML浏览器、WAP1.X协议栈、WAP2.0协议栈等模块。 WAP特有的 WML Transformations功能将WML文档转换成XHTML文档处理，取得了处理和操作上的一致性。
+功能
+支持完整的WAP1.X和WAP2.0协议栈
+支持WML、WBXML、XHTMLMP文档格式的解析处理
+支持WBMP、JPG、GIF、PNG等图像格式的下载、解码和显示
+支持WCSS(WAP Cascading Style Sheet)
+支持本地Cache
+支持HTTPSM(COOKIE)
+支持UNICODE,支持GB2312/GBK/BIG5的相互转换
+支持压缩保存功能，减少存储空间的使用
+可扩展支持ECMAScript/JAVASCRIPT
+可扩展支持普通HTML网页
+可扩展支持文本文件的显示和二进制文件的下载
+可扩展支持压缩文档的下载显示
+主要特点
+1、代码精简：
+基本版本仅仅需要200KB代码空间，包含CSS\Javascript\GZIP等功能的完全版本也只需要650KB代码空间
+2、内存节省：
+不支持Javascript时300KB内存就可以支持包括新浪在内的大网页浏览；支持Javascript也只需要增加300KB空间
+3、独立内存管理：
+内建浏览器内存管理机制，避免内存泄漏和保证内存操作的安全性
+4、执行高效：
+解析速度大于28K页面/秒 （以40 MIPS CPU为例）
+5、提供简单易用的第三方接口:
+可实现对网页的解析、显示、编辑、保存功能，容易与第三方应用如HTML EMAIL集成
+6、容易移值：
+标准C实现，任务无关设计，不依赖操作系统特性，容易移植到各种终端平台
+7、模块化设计，可剪裁，可配置

@@ -1,0 +1,48 @@
+剖析WININIT.INI文件与Windows病毒
+用过Windows 9X的人都见过如下的提示信息：
+Please wait while Setup updates your configuration files.
+This may take a few minutes...　　在安装完某个软件或者硬件的驱动程序，应安装程序的要求重新启动Windows时，常常看到上述信息。我们往往认为这是Windows的正常活动，绝不会把它与病毒联系起来。本文将用事实告戒你：如果你的机器启动时无缘无故地出现上述信息，就要赶紧去找最新的杀毒软件了！
+这时Windows在干什么呢？实际上它在执行Wininit.ini给出的指令。Wininit.ini是一个鲜为人知的文件，主要用于删除、更名和更新在Windows运行时不能被施以这些操作的文件。它存在的时间很短，所以显得有点神秘。
+一、Wininit文件工作机制
+众所周知，在Windows中，一个可执行文件如果正在运行或某个库文件(*.dll, *.vxd, *.sys等)正在被打开使用，则不能被改写或删除。例如：你不可能在资源管理器中删除\windows\explorer.exe。而在Windows的GDI界面下，有一些文件一直处于这种状态下，除explorer.exe外，还有显示驱动程序库文件、文件子系统库文件等，如果我们要对这些文件进行升级、改动，就必须在Windows保护模式核心启动前进行。于是Windows就提供了基于Wininit.ini文件的一个机制来完成这个任务。这个机制是：要删除或改写这类文件的应用程序按一定的格式把命令写入Wininit.ini；Windows在重启时，将在Windows目录下搜索Wininit.ini文件，如果找到，就遵照该文件中的指令删除、改名、更新文件，完成任务后，将删除Wininit.ini文件本身，继续启动过程。所以Wininit.ini文件中的指令只会被执行一次，列目录时也通常没有它的踪影。
+Wininit.ini文件的格式简述如下：
+Windows 95 Resource Kit提到Wininit.ini文件有三个可能的段，但只叙述了[rename]段的用法。虽然名为[rename]，却可实现删除、改名、更新文件的功能。其格式为：
+[rename]
+......
+filename1=filename2
+......行“filename1=filename2”相当于依次执行“copy filename2 filename1”及“del filename2”这两条DOS命令。
+启动时，Windows将用filename2覆盖filename1，再删除filename2，这就实现了用filename2更新filename1的目的；如果filename1不存在，实际结果是将filename2改名为filename1；如果要删除文件，可令filename1为nul，例如：
+[rename]
+......
+nul=filename2
+......将删除filename2。
+以上文件名都必须包含完整路径。注意：由于Wininit.ini文件的处理是在Windows文件系统调入前，所以不支持长文件名。
+Wininit.ini的应用很多，除了经常在软硬件的安装程序中用到外，还在软硬件的卸载程序中用到。比如：假设你要为自己的软件编写一个卸载程序，这个卸载程序本身是不可能被自己删除的，因为它试图删除自身时，自身却正在运行。为了清除卸载程序本身，你就得借助于Wininit.ini文件。顺便提一句，在安装Windows的最后阶段，就是利用Wininit.ini文件来清除和更名被安装程序SETUP自身使用的文件。
+二、该技术在新的Windows病毒中流行
+微机操作平台已经完成了从DOS平台到Windows平台的转移，不幸的是，大量出现的Windows 9X病毒标志着病毒也同样完成了这个转移。
+Windows病毒在感染文件时，也碰到了这样一个问题：某些文件，因为系统正在使用，不能被改写、被感染。早期的Windows病毒如CIH病毒使用VXD技术来解决这个问题，这易造成系统不稳定。后期的病毒大多采用Windows提供的标准方法—Wininit.ini文件来解决这个问题，比如以下几种新出现的Windows病毒。
+1．Win32.Kriz
+该病毒又叫圣诞节病毒，内存驻留型，具有多形性。该病毒极端危险，在12月25日发作时将改写CMOS，覆盖所有驱动器上的所有文件，然后用CIH病毒中的同样程序破坏主板上FLASH BIOS。该病毒感染*.EXE(PE格式)和*.SCR文件，同时为了监控所有文件操作，它感染kernel32.dll，接管文件复制、打开、移动等文件存取函数。由于kernel32.dll文件在Windows运行时只能以只读方式打开，为感染它，该病毒将它复制一份，名为KRIZED.TT6，然后感染复制品KRIZED.TT6，写RENAME指令到Wininit.ini文件中，下次机器启动时，KRIZED.TT6将替代原来的kernel32.dll，完成感染。
+2．Suppl.A 蠕虫
+这是一个Word宏蠕虫，通过在发出的E-mail中插入一个特洛伊文档作为附件传播。当附件被打开时，病毒COPY文档到Anthrax.ini，把要展开的数据写到文件dll.lzh，并解压为dll.tmp，以上文件都放在Windows目录下。下一步这个蠕虫创建一个具有如下内容的Wininit.ini文件：
+[rename]
+null=C:\Windows\DLL.lzh
+C:\Windows\System\Wsock33.dll= C:\Windows\System\Wsock32.dll
+C:\Windows\System\Wsock32.dll= C:\Windows\DLL.tmp
+第一行是删除dll.lzh，第二行是把原wsock32.dll改名为wsock33.dll，第三行则把dll.tmp改名为wsock32.dll。下一步启动时，这些指令将生效。这样，wsock32.dll就被感染了。利用它，蠕虫就可监控外发邮件，一旦发现外发邮件，蠕虫就自动把特洛伊文档作为附件加到该邮件中进行传播。感染7天后，该病毒将把硬盘上所有以DOC、XLS、TXT、RIF、DBF、ZIP、ARJ、RAR为扩展名的文件长度置为0，从而破坏所有的数据文件。
+3．Heathen病毒
+多平台病毒，感染Word文档和PE格式EXE文件。为了感染explorer.exe，病毒先把explorer.exe复制为heathen.vex，然后加一条[rename]指令到Wininit.ini文件，例如：
+[rename]
+c:\windows\explorer.exe=c:\windows\heathen.vex
+下次启动时，Windows将帮助它完成对Explorer.exe的感染。另外，该病毒发作时也使用Wininit.ini来删除Windows注册表文件。
+[rename]
+nul=c:\Windows\System.dat
+nul=c:\Windows\User.dat
+nul=c:\Windows\System.da0
+nul=c:\Windows\User.da0
+4．Win95.SK
+这是最凶狠、最狡猾的病毒之一了，原有一些BUG，现在已出现了更新的版本，纠正了第一个版本中的所有BUG。它是一个寄生性的Windows病毒，可感染Windows　PE格式文件、HLP帮助文件、压缩包文件(RAR、ZIP、ARJ、HA)。它采用了许多新的高级技术，如：自身加解密技术、入口点隐藏技术等。当磁盘上文件被访问时，它检查其文件名，如果是几个反病毒程序的名字(ADINF、AVPI、AVP、VBA、DRWEB)，该病毒将删除从C:盘到Z:盘的所有目录下的所有能被删除的文件，然后，调用函数Fatal_Error_Handler使系统死机。
+Windows　Shell文件explorer.exe是Windows病毒必争之地，该病毒自然不会放过，但比其他病毒更加完善，它通过从system.ini文件中的“shell=”行来获得Shell文件名。这样，即使你将explorer.exe改名，在Shell中指定实际的文件名，期望借此避免被感染，也是徒劳。它感染Shell文件的具体步骤是：以explorer.exe为例，把explorer.exe复制为explorer.exf，然后感染explorer.exf，再创建Wininit.ini文件，写入合适的Rename指令。这与其他病毒的作法如出一辙。
+由于上述原因，一些实时病毒监控软件已把Wininit.ini文件列为重点监控对象。
+三、采用Wininit.ini彻底杀除病毒
+在Windows平台下杀病毒，会碰到类似问题：如何清除正在运行或处于打开状态的染毒文件中的病毒？了解了Wininit.ini文件的工作机制，我们可以这样来设计杀毒软件：在发现某个染毒文件因为正处于打开状态或执行状态而不能清除病毒时，可将其复制一份，并将复制品去毒，然后在Windows 目录下创建一个Wininit.ini文件(创建之前要先查查 Wininit.ini 文件是否存在)，建立[rename]段，加入一行：染毒文件名=复制品文件名；继续清扫病毒，如果发现类似文件，可在[rename]下再添加一行即可；扫瞄完成后应强烈建议用户重新启动或干脆强行重新启动，以便执行Wininit.ini，完成整个清毒过程。

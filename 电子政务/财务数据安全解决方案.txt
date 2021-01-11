@@ -1,0 +1,26 @@
+财务数据安全解决方案
+新一代网络安全产品，包括FortiGate病毒防火墙，可用于保护企业网络适应不断变化的环境，以识别和防护从外部和内部进入的有害的混合型安全攻击。利用基于ASIC的安全平台超过
+传统的网络安全设备，它对基于病毒／蠕虫攻击的、经由Email和Web流量传播的攻击进行防护。为了符合GLBA条例，保障消费者财务数据的安全，保护业务网络和体系结构是非常关键的。
+Fortinet公司的FortiGate病毒防火墙解决了金融机构的关键网络防护需求。基于ASIC加速的系统在网关处实时地扫描email、Web和文件传递内容，在病毒、蠕虫和其它不合适和有害内容进入网络之前抵挡住它们的攻击，以保护教育网络。另外，每个FortiGate系统都包含内置的入侵检测、入侵防御、防火墙、VPN和流量控制，安装维护和更新都很简便。
+Fortinet的FortiGate系统应用于世界各地的金融服务机构，电子商务和BB业务合作伙伴， 例如：
+Overstock.com
+Citizens Bank
+AIG Hawaii
+Clarington Funds
+Desjardins Financial (Canada)
+Ionis Pension (France)
+Asia Commercial Bank (HongKong)
+Technology One (Australia)
+KGI Securities (Thailand)
+Daewoo Capital (Korea)
+Sumitomo Mitsui Bank-Taipei Office (Taiwan)
+Caisse Popular
+成功案例
+Clarington Funds 公司是独立的财富管理公司。通过全资子公司、 Clarington Funds 和 Clarington 投资公司促销、管理和支配公共基金和其它基金，它管理着 41 亿美元的资金。金融公司对５个地区办公室和一些远程办公人员提供网络访问和关键任务应用。
+情况：
+Clarington Funds的一个地区办公室受到病毒感染，保护其加密的广域网成了当务之急。公司专门调研了一些现有的安全方法， 并研究安全解决方案，寻求在攻击进入网络之前阻止它们的方案。
+解决方案：
+Clarington Funds评估了多家安全设备供应商的产品，包括Symantec和Bordeware。Fortinet提供的产品通过基于ASIC加速方法，能实现几种核心特性，例如集成的防病毒、VPN、Web内容过滤、防火墙、反垃圾邮件、入侵监测和流量管理，而且容易操作维护。
+Clarington Funds的技术经理George Ho 说，“我们在网络的每一入口处安装使用FortiGate。这保证了我们达到高度的安全，甚至在信任的资源之间，保护了我们的WAN网络上数据。因为FortiGate 系统作为VPN的端点装在网络中， 我们能使得网络中的不想要的流量减到最小。”
+用户评语：
+Clarington Funds对设备安装的简便和支持都很满意， 认为几乎使得网络情况立即见到效果。 Clarington Funds的技术经理George Ho 说，“我们在一天之内安装了4台FortiGate 设备， 新安装的设备有了友好的操作界面， 得到Fortinet 支持。自从安装以后， 我们可以监控到单是病毒活动就减少了90％。”

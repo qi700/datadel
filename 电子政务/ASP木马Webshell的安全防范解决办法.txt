@@ -1,0 +1,34 @@
+ASP木马Webshell的安全防范解决办法
+注意：本文所讲述之设置方法与环境：适用于Microsoft Windows 2000 Server/Win2003 SERVER | IIS5.0/IIS6.0
+1、首先我们来看看一般ASP木马、Webshell所利用的ASP组件有那些？我们以海洋木马为列：
+shellStr="Shell"
+applicationStr="Application"
+if cmdPath="wscriptShell"
+set sa=server.createObject(shellStr&"."&applicationStr)
+set streamT=server.createObject("adodb.stream")
+set domainObject = GetObject("WinNT://.")
+以上是海洋中的相关代码，从上面的代码我们不难看出一般ASP木马、Webshell主要利用了以下几类ASP组件：
+① WScript.Shell (classid:72C24DD5-D70A-438B-8A42-98424B88AFB8)
+② WScript.Shell.1 (classid:F935DC22-1CF0-11D0-ADB9-00C04FD58A0B)
+③ WScript.Network (classid:093FF999-1EA0-4079-9525-9614C3504B74)
+④ WScript.Network.1 (classid:093FF999-1EA0-4079-9525-9614C3504B74)
+⑤ FileSystem Object (classid:0D43FE01-F093-11CF-8940-00A0C9054228)
+⑥ Adodb.stream (classid:{00000566-0000-0010-8000-00AA006D2EA4})
+⑦ Shell.applicaiton....
+hehe，这下我们清楚了危害我们WEB SERVER IIS的最罪魁祸首是谁了!!开始操刀,come on...
+2:解决办法：
+① 删除或更名以下危险的ASP组件：
+WScript.Shell、WScript.Shell.1、Wscript.Network、Wscript.Network.1、adodb.stream、Shell.application
+开始------->运行--------->Regedit，打开注册表编辑器，按Ctrl+F查找，依次输入以上Wscript.Shell等组件名称以及相应的ClassID，然后进行删除或者更改名称(这里建议大家更名，如果有部分网页ASP程序利用了上面的组件的话呢，只需在将写ASP代码的时候用我们更改后的组件名称即可正常使用。当然如果你确信你的ASP程序中没有用到以上组件，还是直
+接删除心中踏实一些^_^,按常规一般来说是不会做到以上这些组件的。删除或更名后，iisreset重启IIS后即可升效。)
+[注意：由于Adodb.Stream这个组件有很多网页中将用到，所以如果你的服务器是开虚拟主机的话，建议酢情处理。]
+② 关于 File System Object (classid:0D43FE01-F093-11CF-8940-00A0C9054228)即常说的FSO的安全问题，如果您的服务器必需要用到FSO的话，(部分虚拟主机服务器一般需开FSO功能)可以参照本人的另一篇关于FSO安全解决办法的文章:Microsoft Windows 2000 Server FSO 安全隐患解决办法。如果您确信不要用到的话，可以直接反注册此组件即可。
+③ 直接反注册、卸载这些危险组件的方法：(实用于不想用①及②类此类烦琐的方法)
+卸载wscript.shell对象，在cmd下或直接运行：regsvr32 /u %windir%\system32\WSHom.Ocx
+卸载FSO对象,在cmd下或直接运行：regsvr32.exe /u %windir%\system32\scrrun.dll
+卸载stream对象,在cmd下或直接运行： regsvr32 /s /u "C:\Program Files\Common Files\System\ado\msado15.dll"
+如果想恢复的话只需要去掉 /U 即可重新再注册以上相关ASP组件例如：regsvr32.exe %windir%\system32\scrrun.dll
+④ 关于Webshell中利用set domainObject = GetObject("WinNT://.")来获取服务器的进程、服务以及用户等信息的防范，大家可以将服务中的Workstation[提供网络链结和通讯]即Lanmanworkstation服务停止并禁用即可。此处理后，Webshell显示进程处将为空白。
+3 按照上1、2方法对ASP类危险组件进行处理后，用阿江的asp探针测试了一下,"服务器CPU详情"和"服务器操作系统"根本查不到,内容为空白的。再用海洋测试Wsript.Shell来运行cmd命令也是提示Active无法创建对像。大家就都可以再也不要为ASP木马危害到服务器系统的安全而担扰了。
+当然服务器安全远远不至这些，这里为大家介绍的仅仅是本人在处理ASP木马、Webshell上的一些心得体会。在下一篇中将为大家介绍如何简简单单的防止别人在服务器上执行如net user之类的命令，防溢出类攻击得到cmdshell，以及执行添加用户、改NTFS设置权限到终端登录等等的最简单有效的防范方法。
+本文作者：李泊林/LeeBolin 资深系统工程师、专业网络安全顾问。 已成功为国内多家大中型企业，ISP服务商提供了完整的网络安全解决方案。尤其擅长于整体网络安全方案的设计、大型网络工程的策划、以及提供完整的各种服务器系列安全整体解决方案。

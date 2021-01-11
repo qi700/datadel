@@ -1,0 +1,96 @@
+电脑病毒发展历史和常识
+最早由冯·诺伊曼提出一种可能性----现在称为病毒，但没引起注意。
+1975 年，美国科普作家约翰·布鲁勒尔 (John Brunner) 写了一本名为《震荡波骑士》(Shock Wave Rider) 的书，该书第一次描写了在信息社会中，计算机作为正义和邪恶双方斗争的工具的故事，成为当年最佳畅销书之一。
+1977 年夏天，托马斯·捷·瑞安 (Thomas.J.Ryan) 的科幻小说《P-1的春天》(The Adolescence of P-1) 成为美国的畅销书，作者在这本书中描写了一种可以在计算机中互相传染的病毒，病毒最后控制了 7,000 台计算机，造成了一场灾难。
+1983 年 11 月 3 日，弗雷德·科恩 (Fred Cohen) 博士研制出一种在运行过程中可以复制自身的破坏性程序，伦·艾德勒曼 (Len Adleman) 将它命名为计算机病毒(computer viruses)，并在每周一次的计算机安全讨论会上正式提出，8 小时后专家们在 VAX11/750 计算机系统上运行，第一个病毒实验成功，一周后又获准进行 5 个实验的演示，从而在实验上验证了计算机病毒的存在。
+1986 年初，在巴基斯坦的拉合尔 (Lahore)，巴锡特 (Basit) 和阿姆杰德(Amjad) 两兄弟经营着一家 IBM-PC 机及其兼容机的小商店。他们编写了Pakistan 病毒，即Brain。在一年内流传到了世界各地。
+1988 年 3 月 2 日，一种苹果机的病毒发作，这天受感染的苹果机停止工作，只显示“向所有苹果电脑的使用者宣布和平的信息”。以庆祝苹果机生日。
+1988 年 11 月 2 日，美国六千多台计算机被病毒感染，造成 Internet不能正常运行。这是一次非常典型的计算机病毒入侵计算机网络的事件，迫使美国政府立即作出反应，国防部成立了计算机应急行动小组。这次事件中遭受攻击的包括 5 个计算机中心和 12 个地区结点，连接着政府、大学、研究所和拥有政府合同的 250,000 台计算机。这次病毒事件，计算机系统直接经济损失达 9600 万美元。这个病毒程序设计者是罗伯特·莫里斯 (Robert T.Morris)，当年 23 岁，是在康乃尔 (Cornell) 大学攻读学位的研究生。
+罗伯特·莫里斯设计的病毒程序利用了系统存在的弱点。由于罗伯特·莫里斯成了入侵 ARPANET 网的最大的电子入侵者，而获准参加康乃尔大学的毕业设计，并获得哈佛大学 Aiken 中心超级用户的特权。他也因此被判 3 年缓刑，罚款 1 万美元，他还被命令进行 400 小时的新区服务。
+1988 年底，在我国的国家统计部门发现小球病毒。
+注：在此文中，把蠕虫、我们常提的病毒定为病毒不同种类。（www.chinakv.com，2000-11-01）
+l 重温电脑病毒史　　你可知道，电脑病毒的概念来自一场游戏？
+电脑病毒的起源
+电脑病毒的概念其实源起相当早，在第一部商用电脑出现之前好几年时，电脑的先驱者冯·诺伊曼（John Von Neumann）在他的一篇论文《复杂自动装置的理论及组识的进行》里，已经勾勒出病毒程序的蓝图。不过在当时，绝大部分的电脑专家都无法想像会有这种能自我繁殖的程序。
+1975年，美国科普作家约翰·布鲁勒尔（John Brunner）写了一本名为《震荡波骑士》（Shock Wave Rider）的书，该书第一次描写了在信息社会中，计算机作为正义和邪恶双方斗争的工具的故事，成为当年最佳畅销书之一。
+1977年夏天，托马斯·捷·瑞安（Thomas.J.Ryan）的科幻小说《P-1的春天》（The Adolescence of P-1）成为美国的畅销书，作者在这本书中描写了一种可以在计算机中互相传染的病毒，病毒最后控制了 7,000 台计算机，造成了一场灾难。 虚拟科幻小说世界中的东西，在几年后终于逐渐开始成为电脑使用者的噩梦。
+而差不多在同一时间，美国著名的AT&T贝尔实验室中，三个年轻人在工作之余，很无聊的玩起一种游戏:彼此撰写出能够吃掉别人程序的程序来互相作战。这个叫做"磁芯大战"（core war）的游戏，进一步将电脑病毒"感染性"的概念体现出来。
+1983年11月3日，一位南加州大学的学生弗雷德·科恩（Fred Cohen）在UNIX系统下，写了一个会引起系统死机的程序，但是这个程序并未引起一些教授的注意与认同。科恩为了证明其理论而将这些程序以论文发表，在当时引起了不小的震撼。科恩的程序，让电脑病毒具备破坏性的概念具体成形。
+不过，这种具备感染与破坏性的程序被真正称之为"病毒"，则是在两年后的一本《科学美国人》的月刊中。一位叫作杜特尼（A.K.Dewdney）的专栏作家在讨论"磁芯大战"与苹果二型电脑（别怀疑，当时流行的正是苹果二型电脑，在那个时侯，我们熟悉的PC根本还不见踪影）时，开始把这种程序称之为病毒。从此以后我们对于这种具备感染或破坏性的程序，终于有一个"病毒"的名字可以称呼了。
+第一个真正的电脑病毒
+到了1987年，第一个电脑病毒C-BRAIN终于诞生了（这似乎不是一件值得庆贺的事）。一般而言，业界都公认这是真正具备完整特征的电脑病毒始祖。这个病毒程序是由一对巴基斯坦兄弟：巴斯特（Basit）和阿姆捷特（Amjad）所写的，他们在当地经营一家贩卖个人电脑的商店，由于当地盗拷软件的风气非常盛行，因此他们的目的主要是为了防止他们的软件被任意盗拷。只要有人盗拷他们的软件，C-BRAIN就会发作，将盗拷者的硬盘剩余空间给吃掉。
+这个病毒在当时并没有太大的杀伤力，但后来一些有心人士以C-BRAIN为蓝图，制作出一些变形的病毒。而其他新的病毒创作，也纷纷出笼，不仅有个人创作，甚至出现不少创作集团（如NuKE,Phalcon/Skism,VDV）。各类扫毒、防毒与杀毒软件以及专业公司也纷纷出现。一时间，各种病毒创作与反病毒程序，不断推陈出新，如同百家争鸣。
+DOS时代的著名病毒
+所谓"DOS时代的病毒"，意思是说这是从DOS时代就有的老古董，诸位读者可别以为您现在已经进入Windows 95/98的年代，就不会感染DOS时期的病毒。其实由于Windows 95/98充其量不过是一套架构在DOS上的操作系统，因此即使是处在Windows 95/98之下，一不小心还是会惹火上身的！
+耶路撒冷（Jerusalem）　　这个古董级病毒其实有个更广为人知的别称，叫做"黑色星期五"。为什么会有这么有趣的别称？道理很简单:因为只要每逢十三号又是星期五的日子，这个病毒就会发作。而发作时将会终止所有使用者所执行的程序，症状相当凶狠。
+米开朗基罗（Michelangelo）　　米开朗基罗的名字，对于一些早一点的电脑使用者而言，真可说是大名鼎鼎，如雷贯耳。著名的原因除了它拥有一代艺术大师米开朗基罗的名字之外，更重要的是它的杀伤力惊人:每年到了3月6日米开朗基罗生日（这也就是它为什么叫做"米开朗基罗"的原因）时，这个病毒就会以Format硬盘来为这位大师祝寿。于是乎，你辛苦建立的所有资料都毁于一旦，永无翻身之日。
+猴子（Monkey）　　Monkey据说是第一个"引导型"的病毒，只要你使用被Monkey感染过的系统软盘开机，病毒就会入侵到你的电脑中，然后伺机移走硬盘的分区表，让你一开机就会出现"Invalid drive specification"的信息。比起"文件型"病毒只有执行过受感染文件才会中毒的途径而言，Monkey的确是更为难缠了。
+音乐虫病毒（Music Bug）　　这个发作时会大声唱歌，甚至造成资料流失、无法开机的病毒，正是台湾土产的病毒。所以，当你听到电脑自动传来一阵阵音乐声时，别以为你的电脑比别人聪明，那很有可能是中毒了。　　其实这种会唱歌的病毒也不少，有另一个著名的病毒（叫什么名字倒忘了）发作时还会高唱着"两只老虎"呢！
+DOS时期的病毒，种类相当繁杂，而且不断有人改写现有的病毒。到了后期甚至有人写出所谓的"双体引擎"，可以把一种病毒创造出更多元化的面貌，让人防不胜防！而病毒发作的症状更是各式各样，有的会唱歌、有的会删除文件、有的会Format硬盘、有的还会在屏幕上显出各式各样的图形与音效。不过幸运的 是，这些DOS时期的古董级病毒，由于大部分的杀毒软件都可以轻易地扫除，所以杀伤力已经大不如前了。
+Windows时期的来临
+随着Windows 3.1在全球的风行，正式宣告了个人电脑操作环境进入Windows时代。紧接着，Windows 95/98的大为畅销，使得现在几乎所有个人电脑的操作环境都是在Windows状态下。而在Windows环境下最为知名的，大概就属"宏病毒"与"32位病毒"了。
+宏病毒　　随着各种Windows下套装软件的发展，许多软件开始提供所谓"宏"的功能，让使用者可以用"创造宏"的方式，将一些繁琐的过程记录成一个简单的指令来方便自己操作。然而这种方便的功能，在经过有心人士的设计之后，终于又使得"文件型"病毒进入一个新的里程碑:传统的文件型病毒只会感染后缀为exe和com的执行文件，而宏病毒则会感染Word、Excel、AmiPro、Access等软件储存的资料文件。更夸张的是，这种宏病毒是跨操作平台的。以Word的宏病毒为例，它可以感染DOS、Windows 3.1/95/98/NT、OS/2、麦金塔等等系统上的Word文件以及通用模板。　　在这些宏病毒之中，最为有名的除了后面要讲的Melissa就是令人闻之色变的Taiwan NO.1B 。这个病毒的发作情形是：到了每月的十三号，只要您随便开启一份Word文件，屏幕上会出现一对话窗口，询问你一道庞杂的算数题。答错的话（这种复杂的算数大概只有超人可以很快算出来吧）就会连续开启二十个窗口，然后又出现另一道问题，如此重复下去，直到耗尽系统资源而死机为止。　　虽然宏病毒有很高的传染力，但幸运的是它的破坏能力并不太强，而且解毒方式也较容易，甚至不需杀毒软件就可以自行手动解毒。
+32位病毒　　所谓"32位病毒"，则是在Windows 95之后所产生的一种新型态文件型病毒，它虽然同样是感染exe执行文件，但是这种病毒专挑Windows的32位程序下手，其中最著名的就是去年大为流行的CIH病毒了。　　CIH病毒的厉害之处，在于他可以把自己的本体拆散塞在被感染的文件中，因此受感染的文件大小不会有所变化，杀毒软件也不易察觉。而最后一个版本的CIH病毒，除了每个月26日发作，将你的硬盘Format掉之外，有时候还会破坏主板BIOS内的资料，让你根本无法开机！虽然目前大部分的杀毒软件都有最新的病毒码可以解决这只难缠的病毒，不过由于它的威力实在强大，大家还是小心为上。（CIH又可能在今年4月26发作，你不会有事吧？）
+Internet的革命
+有人说Internet的出现，引爆了新一波的信息革命。因为在因特网上，人与人的距离被缩短到极小的距离，而各式各样网站的建立以及搜寻引擎的运用，让每个人都很容易从网络上获得想要的信息。
+Internet的盛行造就了信息的大量流通，但对于有心散播病毒、盗取他人帐号、密码的电脑黑客来说，网络不折不扣正好提供了一个绝佳的渠道。也因此，我们这些一般的使用者，虽然享受到因特网带来的方便，同时却也陷入另一个恐惧之中。
+病毒散播的新捷径
+由于因特网的便利，病毒的传染途径更为多元化。传统的病毒可能以磁盘或其他存储媒体的方式散布，而现在，你只要在电子邮件或ICQ中，夹带一个文件寄给朋友，就可能把病毒传染给他；甚至从网络上下载文件，都可能收到一个含有病毒的文件。
+不过虽然网络使得病毒的散布更为容易，但其实这种病毒还是属于传统型的，只要不随便从一些籍籍无名的网站下载文件(因为有名的网站为了不砸了自己的招牌，提供下载的文件大都经过杀毒处理)，安装杀毒软件，随时更新病毒码，下载后的文件不要急着执行，先进行查毒的步骤(因为受传统病毒感染的程序，只要不去执行就不会感染与发作)，多半还是可以避免中毒的情形产生。
+第二代病毒的崛起
+前面所谈的各式各样的病毒，基本上都是属于传统型的病毒，也就是所谓"第一代病毒"。会有这样的称呼方式，主要是用来区分因为Internet蓬勃发展之后，最新出现的崭新病毒。这种新出现的病毒，由于本质上与传统病毒有很大的差异性，因此就有人将之称为"第二代病毒"。
+第二代病毒与第一代病毒最大的差异，就是在于第二代病毒传染的途径是基于浏览器的，这种发展真是有点令人瞠目结舌！
+原来，为了方便网页设计者在网页上能制造出更精彩的动画，让网页能更有空间感，几家大公司联手制订出Active X及Java的技术。而透过这些技术，甚至能够分辨你使用的软件版本，建议你应该下载哪些软件来更新版本，对于大部分的一般使用者来说，是颇为方便的工具。但若想要让这些网页的动画能够正常执行，浏览器会自动将这些Active X及Java applets的程序下载到硬盘中。在这个过程中，恶性程序的开发者也就利用同样的渠道，经由网络渗透到个人电脑之中了。这就是近来崛起的"第二代病毒"，也就是所谓的"网络病毒"。
+兵来将挡，水来土掩
+目前常见的第二代病毒，其实破坏性都不大，例如在浏览器中不断开启窗口的"窗口炸弹"，带着电子计时器发出"咚咚"声的"闹闹熊"等，只要把浏览器关闭后，对电脑并不会有任何影响。但随着科技的日新月异，也难保不会出现更新、破坏性更大的病毒。
+只是，我们也不需要因为这种趋势而太过悲观，更不用因噎废食地拒绝使用电脑上网。整个电脑发展史上，病毒与杀毒软件的对抗一直不断的持续进行中，只要小心一点，还是可以愉快地畅游在因特网的世界里。
+整理自《PCHOME》及"病毒观察"网站
+电脑病毒发展历史年表（英文）
+http://www.infoplease.com/ipa/A0872842.html
+1949
+Theories for self-replicating programs are first developed.
+1981
+Apple Viruses 1, 2, and 3 are some of the first viruses “in the wild,” or in the public domain. Found on the Apple II operating system, the viruses spread through Texas A&M via pirated computer games.
+1983
+Fred Cohen, while working on his dissertation, formally defines a computer virus as “a computer program that can affect other computer programs by modifying them in such a way as to include a (possibly evolved) copy of itself.”
+1986
+Two programmers named Basit and Amjad replace the executable code in the boot sector of a floppy disk with their own code designed to infect each 360kb floppy accessed on any drive. Infected floppies had “© Brain” for a volume label.
+1987
+The Lehigh virus, one of the first file viruses, infects command.com files.
+1988
+One of the most common viruses, Jerusalem, is unleashed. Activated every Friday the 13th, the virus affects both .exe and .com files and deletes any programs run on that day.
+MacMag and the Scores virus cause the first major Macintosh outbreaks.
+1990
+Symantec launches Norton AntiVirus, one of the first antivirus programs developed by a large company.
+1991
+Tequila is the first widespread polymorphic virus found in the wild. Polymorphic viruses make detection difficult for virus scanners by changing their appearance with each new infection.
+1992
+1300 viruses are in existence, an increase of 420% from December of 1990.
+The Dark Avenger Mutation Engine (DAME) is created. It is a toolkit that turns ordinary viruses into polymorphic viruses. The Virus Creation Laboratory (VCL) is also made available. It is the first actual virus creation kit.
+1994
+Good Times email hoax tears through the computer community. The hoax warns of a malicious virus that will erase an entire hard drive just by opening an email with the subject line “Good Times.” Though disproved, the hoax resurfaces every six to twelve months.
+1995
+Word Concept becomes one of the most prevalent viruses in the mid-1990s. It is spread through Microsoft Word documents.
+1996
+Baza, Laroux (a macro virus), and Staog viruses are the first to infect Windows95 files, Excel, and Linux respectively.
+1998
+Currently harmless and yet to be found in the wild, StrangeBrew is the first virus to infect Java files. The virus modifies CLASS files to contain a copy of itself within the middle of the file’s code and to begin execution from the virus section.
+The Chernobyl virus spreads quickly via .exe files. As the notoriety attached to its name would suggest, the virus is quite destructive, attacking not only files but also a certain chip within infected computers.
+Two California teenagers infiltrate and take control of more than 500 military, government, and private sector computer systems.
+1999
+The Melissa virus, W97M/Melissa, executes a macro in a document attached to an email, which forwards the document to 50 people in the user’s Outlook address book. The virus also infects other Word documents and subsequently mails them out as attachments. Melissa spread faster than any previous virus, infecting an estimated 1 million PCs.
+Bubble Boy is the first worm that does not depend on the recipient opening an attachment in order for infection to occur. As soon as the user opens the email, Bubble Boy sets to work.
+Tristate is the first multi-program macro virus; it infects Word, Excel, and PowerPoint files.
+2000
+The Love Bug, also known as the ILOVEYOU virus, sends itself out via Outlook, much like Melissa. The virus comes as a VBS attachment and deletes files, including MP3, MP2, and .JPG. It also sends usernames and passwords to the virus’s author.
+W97M.Resume.A, a new variation of the Melissa virus, is determined to be in the wild. The “resume” virus acts much like Melissa, using a Word macro to infect Outlook and spread itself.
+The “Stages” virus, disguised as a joke email about the stages of life, spreads across the Internet. Unlike most previous viruses, Stages is hidden in an attachment with a false “.txt” extension, making it easier to lure recipients into opening it. Until now, it has generally been safe to assume that text files are safe.
+“Distributed denial-of-service” attacks by hackers knock Yahoo, eBay, Amazon, and other high profile web sites offline for several hours.
+2001
+Shortly after the September 11th attacks, the Nimda virus infects hundreds of thousands of computers in the world. The virus is one of the most sophisticated to date with as many as five different methods of replicating and infecting systems. The “Anna Kournikova” virus, which mails itself to persons listed in the victim’s Microsoft Outlook address book, worries analysts who believe the relatively harmless virus was written with a “tool kit” that would allow even the most inexperienced programmers to create viruses. Worms increase in prevalence with Sircam, CodeRed, and BadTrans creating the most problems. Sircam spreads personal documents over the Internet through email. CodeRed attacks vulnerable webpages, and was expected to eventually reroute its attack to the White House homepage. It infected approximately 359,000 hosts in the first twelve hours. BadTrans is designed to capture passwords and credit card information.
+2002
+Author of the Melissa virus, David L. Smith, is sentenced to 20 months in federal prison. The LFM-926 virus appears in early January, displaying the message “Loading.Flash.Movie” as it infects Shockwave Flash (.swf) files. Celebrity named viruses continue with the “Shakira,” “Britney Spears,” and “Jennifer Lopez” viruses emerging. The Klez worm, an example of the increasing trend of worms that spread through email, overwrites files (its payload fills files with zeroes), creates hidden copies of the originals, and attempts to disable common anti-virus products. The Bugbear worm also makes it first appearance in September. It is a complex worm with many methods of infecting systems.
+2003
+In January the relatively benign “Slammer” (Sapphire) worm becomes the fastest spreading worm to date, infecting 75,000 computers in approximately ten minutes, doubling its numbers every 8.5 seconds in its first minute of infection. The Sobig worm becomes the one of the first to join the spam community. Infected computer systems have the potential to become spam relay points and spamming techniques are used to mass-mail copies of the worm to potential victims.
+2004
+In January a computer worm, called MyDoom or Novarg, spreads through emails and file-sharing software faster than any previous virus or worm. MyDoom entices email recipients to open an attachment that allows hackers to access the hard drive of the infected computer. The intended goal is a “denial of service attack” on the SCO Group, a company that is suing various groups for using an open-source version of its Unix programming language. SCO offers a $250,000 reward to anyone giving information that leads to the arrest and conviction of the people who wrote the worm.

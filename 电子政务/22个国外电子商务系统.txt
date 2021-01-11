@@ -1,0 +1,49 @@
+22个国外电子商务系统
+作者: stanleysan
+COMSHARP CMS 写道 "在网站中加入电子商务功能越来越重要，不管是出于时髦还是实用，本文介绍了22个国外最常用的电子商务系统，从简单的购物车，到完整的电子商务平台，到可以集成到第三方CMS系统的框架，到托管式电子商务服务，有收费的，也有免费的(完整图文版)。 轻量级电子商务系统：如果你只想在网站中简单销售几样东西，部署一个完整的电子商务平台就小题大做了，下面的这些轻量级系统可以满足这个需求。
+E-junkie
+最适合销售可下载数字素材，虽然也可以用来销售有形商品，但需要注意处理好扣税，发运等事宜。
+FatFreeCart
+同样由 E-Junkie 团队开发，适合于使用 Paypal 和 Google Checkout 做结算的业务，只需将他们的代码放到你的网站，并修改产品信息。
+Big Cartel
+适合设计师和艺术家在网上销售他们的作品。
+在 WordPress 博客中开店：以下产品适用于在你的 WordPress 博客中开一个小店。
+WordPress e-Commerce plugin
+WordPress 下最著名的电子商务插件，和 WordPress 完美结合。
+eShop
+WordPress 下的电子商务插件，包括众多有趣功能，比如统计，订单处理，可定制的邮件模板。
+Shopp
+并非免费，但很好用，同 WordPress 完美集成，有很好的模板标签文档。
+WordPress MiniCart
+WordPress 下的非常轻量的购物车插件，可以嵌入到帖子中，还可以用作捐款插件。
+著名 CMS 系统下的购物车集成：以下电子商务产品可以集成到众多著名 CMS 系统中。
+Drupal & e-Commerce
+Drupal 有两个专门开发的电子商务模块，Ubercart & Drupal e-Commerce。 Ubercart 二者中用户最友好的一个，拥有一个动态社区和很多好功能。 Drupal e-Commerce 该 Drupal 模块可以在 Drupal 站点中创建电子商务应用。 E-Commerce for Joomla
+VirtueMart 是可以集成到 Joomla! 的一个开源电子商务平台，使用 Ajax 技术。
+SilverStripe
+SilverStrip 并不需要额外集成电子商务系统，它本身已经内置。
+Django webshop with Satchmo
+尽管 Django 更适合开发者而不是设计师，但你应该知道 Satchmo，这是一个可以同 Django 站点完美集成的购物车程序。
+E-Commerce with Ruby On Rails
+Spree 借助 Ruby On Rails 的强大功能，实现了非常出色的购物车，内置 Google 流量分析，支持超过50种结算方式。
+开源电子商务平台：以下平台虽然相对复杂，且需要一定的编程基础，但它们是最佳电子商务方案。
+Magento
+Magento 应该算是最好的开源电子商务平台，拥有高级统计，客户组管理，众多结算接口，强大的管理界面等等，唯一的遗憾是它的主题机制有些复杂。
+PrestaShop
+PretsaShop 是一个专业的开源电子商务平台，拥有很多优秀的功能和管理界面。
+ZenCart
+由一个活跃的社区开发并维护的开源购物车，安装非常简单。
+收费电子商务平台：如果你不愿在开源系统上花时间研究，以下收费电子商务系统值得一看。
+Shopify
+价格还算合理，可以试用，适合那些对技术不太在行的人使用。
+Foxycart
+和 Shopify 类似，可以帮助你处理电子商务的所有后台工作，几乎可以集成到任何 CMS 系统。
+托管式电子商务服务：如果你不愿在技术上花费任何时间，以下托管式电子商务服务适合你。
+CafePress!
+如果你想在网上销售自己设计的 T 恤衫或咖啡杯，日历什么的，这个服务商可以帮你完成打印，发运一系列工作，你只需设计就是了。
+Lulu
+你可以在上面自助出版书籍。
+CreateSpace
+这是 Amazon 的一项服务，你可以在上面销售你的书，唱片或摄影作品。
+DeviantArt
+DeviantArt 是一个社会化网络社区，艺术家和设计师可以在这里卖自己的作品（这也是在网上寻找免费素材的一个绝佳去处 - 译者）。

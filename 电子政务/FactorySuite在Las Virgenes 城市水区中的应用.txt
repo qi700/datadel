@@ -1,0 +1,8 @@
+FactorySuite在Las Virgenes 城市水区中的应用
+所用软件     Wonderware:     IndustrialSQL Server 7.0     InTouch 7.0     IOServers – Modbus,                    ModBus+     Industrial Workbook     InSQL Trend     微软:     SQL Server 6.5     Windows NT Server 4.0     服务     自主实现
+硬件
+IndustrialSQL Server在一台用于废水处理系统的Pentium Ⅱ-400MHz (512MB RAM、4GB数据空间)上实现。供水系统使用一台Pentium Pro-200MHz（128MBRAM，8GM数据空间）。
+使用通过MDS Spread Spectrum无线设备和多引线租用线路连接的Modicon Compact PLC来支持远程供水站。
+使用通过SA85本地网连接的Modicon Compact PLC支持水处理站。
+“与我们以前所使用的数据存储方案相比，Wonderware的InSQL更容易实现，使用也更加灵活。”
+LVWMD的SCADA系统专家David Gardner。
